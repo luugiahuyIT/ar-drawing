@@ -1,0 +1,58 @@
+import React from 'react';
+
+interface PermissionModalProps {
+  isOpen: boolean;
+  onAllow: () => void;
+  onDeny: () => void;
+  onClose: () => void;
+}
+
+export function PermissionModal({ isOpen, onAllow, onDeny, onClose }: PermissionModalProps) {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden">
+      {/* Dimmed Background Overlay */}
+      <div 
+        aria-hidden="true" 
+        className="absolute inset-0 bg-black/80 z-10"
+        onClick={onClose}
+      ></div>
+      
+      {/* Modal Container */}
+      <div className="bg-white rounded-[16px] p-[32px] w-full max-w-md mx-[20px] md:mx-auto relative z-20 shadow-[0_10px_30px_-5px_rgba(79,70,229,0.15)] flex flex-col items-center text-center transform transition-all animate-in fade-in zoom-in-95 duration-200">
+        
+        {/* Icon Container */}
+        <div className="w-[96px] h-[96px] rounded-2xl bg-gradient-to-br from-[#4F46E5] to-[#818CF8] flex items-center justify-center mb-6 shadow-md">
+          <span className="text-4xl text-white">📷</span>
+        </div>
+        
+        {/* Title */}
+        <h2 className="font-subheadline text-[24px] text-[#1E1B3A] font-bold mb-4 leading-[32px]">
+          Camera permission
+        </h2>
+        
+        {/* Body Text */}
+        <p className="font-body-md text-[16px] text-[#6B6981] mb-8 leading-relaxed px-4">
+          We use your camera only to show your paper and guide lines while you draw. No photos are saved or uploaded.
+        </p>
+        
+        {/* Actions */}
+        <div className="w-full flex flex-col gap-4">
+          <button 
+            onClick={onAllow}
+            className="w-[60%] mx-auto bg-gradient-to-br from-[#4F46E5] to-[#818CF8] text-white font-button-label text-[16px] font-semibold rounded-full py-4 px-6 hover:scale-[1.02] transition-transform active:translate-y-[2px] shadow-[0_10px_30px_-5px_rgba(79,70,229,0.15)]"
+          >
+            Allow camera
+          </button>
+          <button 
+            onClick={onDeny}
+            className="w-full text-[#4F46E5] font-button-label text-[16px] font-semibold py-3 px-6 hover:bg-[#f7f3ed] rounded-[12px] transition-colors"
+          >
+            Use Screen Trace instead
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

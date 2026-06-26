@@ -1,0 +1,206 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PhotoTrace AR - Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#e2dfff",
+                        "on-secondary-fixed": "#000767",
+                        "surface-container-low": "#f7f3ed",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#8792fe",
+                        "surface-container-highest": "#e6e2dc",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "surface-container-high": "#ebe8e2",
+                        "tertiary-container": "#ab354b",
+                        "on-secondary-fixed-variant": "#2f3aa3",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "outline-variant": "#c7c4d8",
+                        "on-primary-container": "#dad7ff",
+                        "primary-container": "#4f46e5",
+                        "on-surface": "#1c1c18",
+                        "outline": "#777587",
+                        "on-tertiary-fixed": "#400010",
+                        "on-error": "#ffffff",
+                        "tertiary": "#8b1b34",
+                        "primary": "#3525cd",
+                        "on-primary-fixed": "#0f0069",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dddad4",
+                        "on-background": "#1c1c18",
+                        "on-secondary-container": "#17228f",
+                        "tertiary-fixed": "#ffdadc",
+                        "on-tertiary-container": "#ffd0d3",
+                        "inverse-primary": "#c3c0ff",
+                        "secondary-fixed": "#e0e0ff",
+                        "inverse-surface": "#31302d",
+                        "on-surface-variant": "#464555",
+                        "surface-tint": "#4d44e3",
+                        "surface-variant": "#e6e2dc",
+                        "surface": "#fdf9f3",
+                        "secondary": "#4953bc",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "background": "#fdf9f3",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "surface-bright": "#fdf9f3",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "surface-container": "#f1ede7",
+                        "inverse-on-surface": "#f4f0ea"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "48px",
+                        "margin-desktop": "64px",
+                        "section-gap": "120px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "button-label": ["Inter"],
+                        "caption": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-hero": ["Inter"],
+                        "subheadline": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "button-label": ["16px", {"lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "caption": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-hero": ["85px", {"lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "subheadline": ["24px", {"lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "500"}],
+                        "body-md": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdf9f3; /* Matching Warm Cream #FFFBF5 approx */
+            overscroll-behavior: none;
+        }
+        .indigo-gradient {
+            background: linear-gradient(135deg, #4F46E5 0%, #818CF8 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Mobile Frame Simulation for Preview */
+        .phone-frame {
+            width: 100%;
+            max-width: 412px;
+            height: 915px; /* Pixel 6 ratio approx */
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: #fdf9f3;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-surface-container">
+<!-- Pixel 6 Container Simulation -->
+<main class="phone-frame shadow-2xl relative">
+<!-- Status Bar Mock -->
+<div class="h-8 w-full flex justify-between items-center px-6 pt-4 text-on-surface-variant">
+<span class="font-bold text-sm">9:41</span>
+<div class="flex gap-1.5 items-center">
+<span class="material-symbols-outlined text-[18px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[18px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- Top Navigation -->
+<header class="flex justify-end items-center px-6 h-16 pt-2">
+<button class="font-button-label text-button-label text-outline hover:text-on-surface transition-colors">
+                Skip
+            </button>
+</header>
+<!-- Hero Illustration -->
+<div class="flex-1 flex flex-col items-center justify-center px-10">
+<div class="relative w-full aspect-square flex items-center justify-center animate-pulse-subtle">
+<!-- Using provided image placeholder for the hero illustration -->
+<img alt="PhotoTrace AR Hero Illustration showing a hand holding a phone with an AR overlay of a flower onto a sketchpad" class="w-full h-auto object-contain drop-shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjtRutp9axXpA76YCxAe3MnaQEz-4XTxbddepKcyeZ33-DMWNXV4kJT91gLg1LOhljNMePOhnxF9zYEgTtZ0VlVKZCtY1FLH_URcqypzl93RhQs6p0fCp6-0s4aQz6bN4C1uqdjLFpJsOwgkRp9_Xk_30Fn1Md5DItoLyac9jnicaNsDoYm-lmfHrhm5edP0F3SEtsI5bnLE9IUEh5Qd1sypvvVDQE2V1ew1XFMSnTjj6fkLWHH6YPtC91aJHn4CmM6Ho33ZeH0aCt" style="transform: translate(0px, 0px); transition: transform 0.5s ease-out;">
+</div>
+</div>
+<!-- Content Section -->
+<div class="px-margin-mobile text-center flex flex-col items-center mb-10">
+<h1 class="font-headline-lg-mobile text-[32px] text-[#1E1B3A] mb-4 font-bold tracking-tight">
+                Trace any photo
+            </h1>
+<p class="font-body-md text-[16px] text-[#6B6981] leading-relaxed max-w-[280px]">
+                Turn your favorite memories into beautiful sketches instantly.
+            </p>
+</div>
+<!-- Progress Dots -->
+<div class="flex justify-center gap-2 mb-10">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#E8E4DE]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#E8E4DE]"></div>
+</div>
+<!-- Primary Action -->
+<footer class="px-6 pb-12">
+<button class="indigo-gradient w-full h-[56px] rounded-xl flex items-center justify-center text-white font-button-label text-button-label shadow-lg active:scale-95 transition-transform" style="border-radius: 24px; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);">
+                Next
+            </button>
+<!-- Android Home Indicator Mock -->
+<div class="mt-8 mx-auto w-32 h-1.5 bg-outline-variant/30 rounded-full"></div>
+</footer>
+</main>
+<script>
+        // Micro-interactions for the onboarding flow
+        document.querySelector('button.indigo-gradient').addEventListener('click', function() {
+            // Simple haptic-like effect logic would go here
+            console.log('Navigating to next onboarding slide...');
+        });
+
+        // Subtle parallax effect on hero illustration based on mouse/tilt
+        const container = document.querySelector('.phone-frame');
+        const hero = document.querySelector('img[src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjtRutp9axXpA76YCxAe3MnaQEz-4XTxbddepKcyeZ33-DMWNXV4kJT91gLg1LOhljNMePOhnxF9zYEgTtZ0VlVKZCtY1FLH_URcqypzl93RhQs6p0fCp6-0s4aQz6bN4C1uqdjLFpJsOwgkRp9_Xk_30Fn1Md5DItoLyac9jnicaNsDoYm-lmfHrhm5edP0F3SEtsI5bnLE9IUEh5Qd1sypvvVDQE2V1ew1XFMSnTjj6fkLWHH6YPtC91aJHn4CmM6Ho33ZeH0aCt"]');
+        
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            
+            hero.style.transform = `translate(${x * 15}px, ${y * 15}px)`;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            hero.style.transform = `translate(0px, 0px)`;
+            hero.style.transition = 'transform 0.5s ease-out';
+        });
+    </script>
+
+
+</body></html>

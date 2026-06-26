@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Template Detail - PhotoTrace AR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "#c7c4d8",
+            "on-secondary": "#ffffff",
+            "background": "#fdf9f3",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#e0e0ff",
+            "outline": "#777587",
+            "on-primary-fixed": "#0f0069",
+            "inverse-surface": "#31302d",
+            "surface-variant": "#e6e2dc",
+            "inverse-on-surface": "#f4f0ea",
+            "on-tertiary-fixed-variant": "#891933",
+            "on-surface-variant": "#464555",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#bdc2ff",
+            "surface-container": "#f1ede7",
+            "on-tertiary": "#ffffff",
+            "on-secondary-container": "#17228f",
+            "surface-container-highest": "#e6e2dc",
+            "on-primary-fixed-variant": "#3323cc",
+            "primary-fixed": "#e2dfff",
+            "tertiary-fixed": "#ffdadc",
+            "on-secondary-fixed-variant": "#2f3aa3",
+            "on-error-container": "#93000a",
+            "surface-tint": "#4d44e3",
+            "on-tertiary-fixed": "#400010",
+            "surface-container-high": "#ebe8e2",
+            "surface-dim": "#dddad4",
+            "surface-bright": "#fdf9f3",
+            "secondary": "#4953bc",
+            "on-tertiary-container": "#ffd0d3",
+            "on-surface": "#1c1c18",
+            "on-secondary-fixed": "#000767",
+            "tertiary-container": "#ab354b",
+            "on-error": "#ffffff",
+            "primary-fixed-dim": "#c3c0ff",
+            "surface-container-lowest": "#ffffff",
+            "inverse-primary": "#c3c0ff",
+            "primary": "#3525cd",
+            "tertiary-fixed-dim": "#ffb2b9",
+            "surface": "#fdf9f3",
+            "surface-container-low": "#f7f3ed",
+            "secondary-container": "#8792fe",
+            "primary-container": "#4f46e5",
+            "error": "#ba1a1a",
+            "tertiary": "#8b1b34",
+            "on-primary-container": "#dad7ff",
+            "on-background": "#1c1c18"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "stack-sm": "8px",
+            "section-gap": "120px",
+            "margin-mobile": "20px",
+            "gutter": "24px",
+            "stack-lg": "48px",
+            "margin-desktop": "64px",
+            "container-max": "1280px",
+            "stack-md": "16px"
+          },
+          "fontFamily": {
+            "subheadline": ["Inter"],
+            "display-hero": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "button-label": ["Inter"],
+            "caption": ["Inter"],
+            "headline-lg": ["Inter"]
+          },
+          "fontSize": {
+            "subheadline": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "display-hero": ["85px", { "lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+            "body-md": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "button-label": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "caption": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-[884px] flex flex-col font-body-md text-on-surface antialiased overflow-x-hidden selection:bg-primary-container/30">
+<!-- Linear/Transactional Navigation Shell - Suppressing bottom nav for this flow -->
+<nav class="flex justify-between items-center w-full px-margin-mobile h-16 sticky top-0 z-50 bg-background/80 backdrop-blur-xl">
+<button class="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors py-2 active:scale-95 group">
+<span class="material-symbols-outlined text-[20px] transition-transform group-active:-translate-x-1">arrow_back</span>
+<span class="font-button-label text-button-label font-medium">Back</span>
+</button>
+</nav>
+<main class="flex-1 w-full max-w-[1080px] mx-auto px-margin-mobile pb-stack-lg">
+<!-- Hero Zone (Preview) -->
+<div class="relative w-full aspect-[4/5] sm:aspect-square md:aspect-video rounded-xl bg-surface-container border border-surface-variant p-4 mt-stack-sm shadow-sm flex items-center justify-center overflow-hidden">
+<!-- Generative Art Placeholder -->
+<div class="absolute inset-0 bg-contain bg-center bg-no-repeat m-6 mix-blend-multiply opacity-90" data-alt="A clean, modern line drawing of a sleepy fox curled up into a circle. The line art is stark black against a warm cream background, capturing the essence of the animal with elegant, continuous strokes. Minimalist illustration style suitable for an AR tracing template, set in a well-lit, high-key studio environment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDQfdkhVpX_kT1ntrbm8XB0OCDQU1YD7OSuJon7zqQVAP3Vt3FYrPTZiEs4PrJBLuoRkp1DXZJ4au8z7Cd9HiaghooT-6fZcfKMTg4tKb2PL0JRj408cI6CPq_AZJVNkqmmy1MNkI_7htUX5AKblucZqBIXl_T410FhJwoKjQj7nOR6QHfoPSiuYxwqWVvZHYkKTftOhzkujBV7m88Wr5QRQO5bAwXqv4alid7SWPdtv5qQ5PAJzJxgWY73AIBifsUdqcIjpDg3zLsj')"></div>
+</div>
+<!-- Info Zone -->
+<div class="mt-stack-md flex flex-col gap-1">
+<h1 class="font-subheadline text-subheadline text-on-surface font-bold tracking-tight">Sleepy Fox</h1>
+<p class="font-caption text-caption text-on-surface-variant">Easy • 12 min • Cute Creatures</p>
+</div>
+<!-- Action Zone -->
+<div class="mt-stack-lg flex flex-col gap-stack-sm">
+<button class="w-full h-[56px] rounded-xl bg-gradient-to-br from-primary-container to-secondary-container text-on-primary font-button-label text-button-label shadow-md shadow-primary-container/20 flex items-center justify-center gap-2 active:scale-[0.98] transition-all hover:shadow-lg hover:shadow-primary-container/30">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+        Camera Trace
+      </button>
+<button class="w-full h-[56px] rounded-xl bg-surface-container-lowest border border-surface-variant text-on-surface font-button-label text-button-label flex items-center justify-center gap-2 active:scale-[0.98] transition-all hover:bg-surface-container-lowest/80">
+<span class="material-symbols-outlined text-[20px]">desktop_windows</span>
+        Screen Trace
+      </button>
+</div>
+<!-- Similar Templates -->
+<div class="mt-stack-lg">
+<h2 class="font-button-label text-button-label font-bold text-on-surface mb-stack-sm">Similar templates</h2>
+<!-- Horizontal Carousel -->
+<div class="flex overflow-x-auto gap-4 pb-4 -mx-margin-mobile px-margin-mobile snap-x snap-mandatory hide-scrollbar" style="scrollbar-width: none;">
+<!-- Card 1 -->
+<button class="shrink-0 snap-start active:scale-95 transition-transform text-left">
+<div class="w-[120px] h-[120px] rounded-xl bg-surface-container border border-surface-variant flex items-center justify-center overflow-hidden mb-2">
+<div class="w-full h-full bg-cover bg-center mix-blend-multiply opacity-80" data-alt="A minimalist black line drawing of a small owl sitting on a branch, set against a warm cream background. Clean, modern illustration style for an AR tracing template." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBdbgxl2E_Jd4M6C563c2bCHmqcOF5I5DjFxuOMGOMQ9sl8YTgIqt7ZNmApEtOrVytMq5ZNYWhKDAAbacYLfVMA30o0d85o1npSL4RVp9t2afSdF_Uzjgr7srPm65eQMyZllnuQAM8u6vFdJiL9n2gjumG9GJBvQZQlJJDq6u9tDCQgPoWoiaAh3YM1aumD5bwjdhXd7Igiy4DUFVLuTnBrpaeCw1cg4-2Frg9mPigmPnaxEbfZeQHQ4G1bUNK6PZ5Aztmb_KgILruL')"></div>
+</div>
+<span class="font-caption text-caption text-on-surface line-clamp-1">Wise Owl</span>
+</button>
+<!-- Card 2 -->
+<button class="shrink-0 snap-start active:scale-95 transition-transform text-left">
+<div class="w-[120px] h-[120px] rounded-xl bg-surface-container border border-surface-variant flex items-center justify-center overflow-hidden mb-2">
+<div class="w-full h-full bg-cover bg-center mix-blend-multiply opacity-80" data-alt="A minimalist black line drawing of a playful kitten batting at a ball of yarn, set against a warm cream background. Clean, modern illustration style for an AR tracing template." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcffokjucp30PLFpdSLrhvvKcFZMnpx_f2XV0xiWIkDHJHPh6PB19cnp-AOa16Pvz5x2wqQNuKcdTOHvryMiozyqTCO5hDpHMxrXRBurCi2oA7WS6c1ojrAMNFE86Yq5ubHeqEu3fXJbsZZYkDJ_bdXesHWcF3YrppAHr89pZ83YMpjjO7NNtkoLY0gIBU9b1k-YsZhM3d4G6RnecX8mmuXa9-MKjDf4N_d-qV17Qfd_QRIXCTcGBgGaaBdQPl3LkCR6d3WNayGm69')"></div>
+</div>
+<span class="font-caption text-caption text-on-surface line-clamp-1">Playful Kitten</span>
+</button>
+<!-- Card 3 -->
+<button class="shrink-0 snap-start active:scale-95 transition-transform text-left">
+<div class="w-[120px] h-[120px] rounded-xl bg-surface-container border border-surface-variant flex items-center justify-center overflow-hidden mb-2">
+<div class="w-full h-full bg-cover bg-center mix-blend-multiply opacity-80" data-alt="A minimalist black line drawing of a geometric wolf head, set against a warm cream background. Clean, modern illustration style for an AR tracing template." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD2Y4acrQUHELjqOLmpog7FJFDUoR9PEphXRnfC4COJUwvo8dmPQ0MHyGTyC8x7PMgUNYeZjB_t68Q7UJyWxk3S3H8MLT-rDHIOdlIr9GMWN1Z_lF14Om8QLlQfaO5UUDvTTzZIly9vO8MEkdUU4leXu4TrAKMJ0bLjb_WIIbqcdwhDn6lmKhKJzGShXiPJBf54KtsjO_dmVVPVA3qdwvCpAG9HbMNwLJEcmeI_mW8h_U2LX2NuwX1hftC4NynliRRB_9hHcZ357At8')"></div>
+</div>
+<span class="font-caption text-caption text-on-surface line-clamp-1">Geo Wolf</span>
+</button>
+<!-- Card 4 -->
+<button class="shrink-0 snap-start active:scale-95 transition-transform text-left">
+<div class="w-[120px] h-[120px] rounded-xl bg-surface-container border border-surface-variant flex items-center justify-center overflow-hidden mb-2">
+<div class="w-full h-full bg-cover bg-center mix-blend-multiply opacity-80" data-alt="A minimalist black line drawing of a delicate fern leaf, set against a warm cream background. Clean, modern illustration style for an AR tracing template." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCi6IcZ4j_cpBYAmmqGTP8uBl1Q5cfj8gWf3qI08rLnLbHXJFG8-9yAnXkPWKIJCRPuzCWeE0mSkTCi3EC_KmyYkSbprjjmqLXbOQuwZBIEK8zWPUwx_Qid7xFgrfmOogKhpRVoRvAd2Nb9xyaJSwk2jATj0SIiapMa70iUFJmmcw5Wwy5ZWLxGFAEnFxTWrKikgThHfwXLTPBoA-xVgFqMHNcSgJ2TlXpU3bT5YQA6GwrFk0N4bv0HgLfP1csq3v45yarjM7H1knBL')"></div>
+</div>
+<span class="font-caption text-caption text-on-surface line-clamp-1">Fern Leaf</span>
+</button>
+</div>
+</div>
+</main>
+<style>
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</body></html>

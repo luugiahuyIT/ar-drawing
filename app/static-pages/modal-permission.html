@@ -1,0 +1,219 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PhotoTrace AR - Camera Permission</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#c3c0ff",
+                      "secondary-fixed-dim": "#bdc2ff",
+                      "inverse-surface": "#31302d",
+                      "on-tertiary-container": "#ffd0d3",
+                      "outline-variant": "#c7c4d8",
+                      "on-primary-container": "#dad7ff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-high": "#ebe8e2",
+                      "tertiary-fixed-dim": "#ffb2b9",
+                      "tertiary-container": "#ab354b",
+                      "on-secondary-fixed": "#000767",
+                      "surface-container": "#f1ede7",
+                      "primary-fixed": "#e2dfff",
+                      "on-primary-fixed-variant": "#3323cc",
+                      "on-tertiary-fixed": "#400010",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed": "#0f0069",
+                      "surface-variant": "#e6e2dc",
+                      "on-error": "#ffffff",
+                      "primary-container": "#4f46e5",
+                      "surface": "#fdf9f3",
+                      "secondary-fixed": "#e0e0ff",
+                      "secondary": "#4953bc",
+                      "surface-container-low": "#f7f3ed",
+                      "on-surface": "#1c1c18",
+                      "inverse-on-surface": "#f4f0ea",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "outline": "#777587",
+                      "surface-container-highest": "#e6e2dc",
+                      "error": "#ba1a1a",
+                      "surface-tint": "#4d44e3",
+                      "surface-dim": "#dddad4",
+                      "on-secondary-container": "#17228f",
+                      "tertiary": "#8b1b34",
+                      "surface-bright": "#fdf9f3",
+                      "primary": "#3525cd",
+                      "tertiary-fixed": "#ffdadc",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#8792fe",
+                      "on-tertiary-fixed-variant": "#891933",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed-variant": "#2f3aa3",
+                      "inverse-primary": "#c3c0ff",
+                      "background": "#fdf9f3",
+                      "on-background": "#1c1c18",
+                      "on-surface-variant": "#464555",
+                      "coral-gradient-start": "#FB7185",
+                      "coral-gradient-end": "#F43F5E",
+                      "indigo-gradient-start": "#4F46E5",
+                      "indigo-gradient-end": "#818CF8",
+                      "indigo-dark": "#1E1B3A",
+                      "warm-gray": "#6B6981"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "16pt": "16px",
+                      "12pt": "12px"
+              },
+              "spacing": {
+                      "section-gap": "120px",
+                      "container-max": "1280px",
+                      "stack-sm": "8px",
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "stack-lg": "48px",
+                      "stack-md": "16px",
+                      "margin-mobile": "20px",
+                      "32pt": "32px",
+                      "96pt": "96px"
+              },
+              "fontFamily": {
+                      "button-label": [
+                              "Inter"
+                      ],
+                      "caption": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-hero": [
+                              "Inter"
+                      ],
+                      "subheadline": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "button-label": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "caption": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-hero": [
+                              "85px",
+                              {
+                                      "lineHeight": "90px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "subheadline": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "72px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .dimmed-overlay {
+            background-color: rgba(30, 27, 58, 0.7);
+            backdrop-filter: blur(5px);
+        }
+        .shadow-ambient {
+            box-shadow: 0 10px 30px -5px rgba(79, 70, 229, 0.15);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen flex items-center justify-center relative overflow-hidden">
+<!-- Dimmed Background Overlay -->
+<div aria-hidden="true" class="absolute inset-0 dimmed-overlay z-10"></div>
+<!-- Modal Container -->
+<div class="bg-surface-container-lowest rounded-16pt p-32pt w-full max-w-md mx-margin-mobile md:mx-auto relative z-20 shadow-ambient flex flex-col items-center text-center transform transition-all">
+<!-- Icon Container -->
+<div class="w-96pt h-96pt rounded-2xl bg-gradient-to-br from-indigo-gradient-start to-indigo-gradient-end flex items-center justify-center mb-6 shadow-md">
+<span class="text-4xl text-white">📷</span>
+</div>
+<!-- Title -->
+<h2 class="font-subheadline text-subheadline text-indigo-dark font-bold mb-4">
+            Camera permission
+        </h2>
+<!-- Body Text -->
+<p class="font-body-md text-[16px] text-warm-gray mb-8 leading-relaxed px-4">
+            We use your camera only to show your paper and guide lines while you draw. No photos are saved or uploaded.
+        </p>
+<!-- Actions -->
+<div class="w-full flex flex-col gap-4">
+<button class="w-[60%] mx-auto bg-gradient-to-br from-indigo-gradient-start to-indigo-gradient-end text-on-primary font-button-label text-button-label rounded-full py-4 px-6 hover:scale-[1.02] transition-transform active:translate-y-[2px] shadow-ambient">
+                Allow camera
+            </button>
+<button class="w-full text-primary-container font-button-label text-button-label font-semibold py-3 px-6 hover:bg-surface-container-low rounded-12pt transition-colors">
+                Use Screen Trace instead
+            </button>
+</div>
+</div>
+
+
+</body></html>

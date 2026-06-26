@@ -3,13 +3,142 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    
+  /* Custom colors from original HTML */
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-variant: #e6e2dc;
+  --color-on-primary-fixed: #0f0069;
+  --color-surface-container-high: #ebe8e2;
+  --color-on-tertiary-fixed-variant: #891933;
+  --color-on-background: #1c1c18;
+  --color-background: #fdf9f3;
+  --color-outline-variant: #c7c4d8;
+  --color-tertiary-fixed: #ffdadc;
+  --color-on-surface-variant: #464555;
+  --color-on-primary-fixed-variant: #3323cc;
+  --color-surface-container: #f1ede7;
+  --color-secondary-fixed: #e0e0ff;
+  --color-primary: #3525cd;
+  --color-outline: #777587;
+  --color-inverse-on-surface: #f4f0ea;
+  --color-primary-fixed-dim: #c3c0ff;
+  --color-on-error: #ffffff;
+  --color-surface-bright: #fdf9f3;
+  --color-surface: #fdf9f3;
+  --color-on-secondary: #ffffff;
+  --color-surface-dim: #dddad4;
+  --color-secondary-fixed-dim: #bdc2ff;
+  --color-surface-container-highest: #e6e2dc;
+  --color-inverse-surface: #31302d;
+  --color-error-container: #ffdad6;
+  --color-surface-tint: #4d44e3;
+  --color-secondary-container: #8792fe;
+  --color-on-primary-container: #dad7ff;
+  --color-on-tertiary-fixed: #400010;
+  --color-on-secondary-container: #17228f;
+  --color-surface-container-low: #f7f3ed;
+  --color-on-surface: #1c1c18;
+  --color-on-tertiary-container: #ffd0d3;
+  --color-tertiary-fixed-dim: #ffb2b9;
+  --color-error: #ba1a1a;
+  --color-secondary: #4953bc;
+  --color-on-secondary-fixed: #000767;
+  --color-on-primary: #ffffff;
+  --color-tertiary-container: #ab354b;
+  --color-inverse-primary: #c3c0ff;
+  --color-on-secondary-fixed-variant: #2f3aa3;
+  --color-tertiary: #8b1b34;
+  --color-primary-container: #4f46e5;
+  --color-on-tertiary: #ffffff;
+  --color-primary-fixed: #e2dfff;
+  --color-on-error-container: #93000a;
+  
+  /* Custom spacing */
+  --spacing-stack-lg: 48px;
+  --spacing-margin-desktop: 64px;
+  --spacing-container-max: 1280px;
+  --spacing-section-gap: 120px;
+  --spacing-margin-mobile: 20px;
+  --spacing-stack-sm: 8px;
+  --spacing-stack-md: 16px;
+  --spacing-gutter: 24px;
+  
+  /* Custom fonts */
+  --font-headline-lg: "Inter", sans-serif;
+  --font-display-hero: "Inter", sans-serif;
+  --font-body-md: "Inter", sans-serif;
+  --font-subheadline: "Inter", sans-serif;
+  --font-caption: "Inter", sans-serif;
+  --font-button-label: "Inter", sans-serif;
+  --font-headline-lg-mobile: "Inter", sans-serif;
+  
+  /* Custom text sizes */
+  --text-headline-lg: 64px;
+  --text-headline-lg--line-height: 72px;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-lg--font-weight: 700;
+  
+  --text-display-hero: 85px;
+  --text-display-hero--line-height: 90px;
+  --text-display-hero--letter-spacing: -0.04em;
+  --text-display-hero--font-weight: 800;
+  
+  --text-body-md: 18px;
+  --text-body-md--line-height: 28px;
+  --text-body-md--font-weight: 400;
+  
+  --text-subheadline: 24px;
+  --text-subheadline--line-height: 32px;
+  --text-subheadline--letter-spacing: 0em;
+  --text-subheadline--font-weight: 500;
+  
+  --text-caption: 14px;
+  --text-caption--line-height: 20px;
+  --text-caption--letter-spacing: 0.02em;
+  --text-caption--font-weight: 500;
+  
+  --text-button-label: 16px;
+  --text-button-label--line-height: 24px;
+  --text-button-label--letter-spacing: 0.01em;
+  --text-button-label--font-weight: 600;
+  
+  --text-headline-lg-mobile: 40px;
+  --text-headline-lg-mobile--line-height: 48px;
+  --text-headline-lg-mobile--letter-spacing: -0.02em;
+  --text-headline-lg-mobile--font-weight: 700;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+.bg-coral-gradient {
+  background: linear-gradient(to right, #FB7185, #F43F5E);
+}
+
+.bg-ar-grid {
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(79, 70, 229, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(79, 70, 229, 0.03) 1px, transparent 1px);
+    background-position: center top;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes bounceSubtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+.animate-bounce-subtle {
+    animation: bounceSubtle 3s ease-in-out infinite;
 }

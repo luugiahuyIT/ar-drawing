@@ -1,0 +1,150 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Are you done with this drawing?</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#000767",
+                        "tertiary-fixed": "#ffdadc",
+                        "surface-container-high": "#ebe8e2",
+                        "surface-variant": "#e6e2dc",
+                        "on-background": "#1c1c18",
+                        "inverse-surface": "#31302d",
+                        "primary-container": "#4f46e5",
+                        "on-secondary": "#ffffff",
+                        "outline": "#777587",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f7f3ed",
+                        "primary": "#3525cd",
+                        "on-primary-fixed": "#0f0069",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#17228f",
+                        "inverse-on-surface": "#f4f0ea",
+                        "tertiary": "#8b1b34",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "on-surface": "#1c1c18",
+                        "surface-dim": "#dddad4",
+                        "secondary-container": "#8792fe",
+                        "secondary": "#4953bc",
+                        "on-secondary-fixed-variant": "#2f3aa3",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "surface-bright": "#fdf9f3",
+                        "inverse-primary": "#c3c0ff",
+                        "surface-container-highest": "#e6e2dc",
+                        "surface": "#fdf9f3",
+                        "on-primary-container": "#dad7ff",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "background": "#fdf9f3",
+                        "on-tertiary-container": "#ffd0d3",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#e2dfff",
+                        "on-surface-variant": "#464555",
+                        "surface-tint": "#4d44e3",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#f1ede7",
+                        "on-tertiary-fixed": "#400010",
+                        "outline-variant": "#c7c4d8",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#ab354b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "2xl": "1rem"
+                    },
+                    "spacing": {
+                        "stack-lg": "48px",
+                        "section-gap": "120px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "stack-md": "16px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "display-hero": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "caption": ["Inter"],
+                        "button-label": ["Inter"],
+                        "subheadline": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-hero": ["85px", { "lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "caption": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "button-label": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "subheadline": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "500" }],
+                        "headline-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .dimmed-overlay {
+            background-color: rgba(30, 27, 58, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .coral-gradient {
+            background: linear-gradient(135deg, #FB7185 0%, #F43F5E 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background antialiased h-screen w-screen overflow-hidden flex items-center justify-center relative">
+<!-- Faux Background App Screen (Dimmed out by overlay) -->
+<div class="absolute inset-0 w-full h-full object-cover" data-alt="A detailed view of a digital canvas showing a partially completed architectural sketch using an augmented reality tracing tool. The lines are crisp white over a translucent camera view of a modern living room. The aesthetic is clean, professional, and softly lit with modern light-mode sensibilities." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA0Ysn8QAg47lrzlr50xItD5VpQYORWwgZf4YR58GzdDVLwz8zwiSWtN9IES-XTYjJMZzzbNL7T4aCL-iJi_EPhLYlRdg2skBFtrMUzlj1cIZ7kKuLWFExk_rvLWXUgBxulGap753pVIEI0nOD_kN4RGPPpIjlra41AimRioZoltZBrSBbFyps-Yo6zqtPQwkFh1GpLt8c2AVsOBR7ndWiVFbUmN_CT8oKuc0USVIt3IkN7B2uI7cnEJ3NRJHLv4yYv4s5QNXo8gcSc')"></div>
+<!-- Modal Overlay Backdrop -->
+<div class="absolute inset-0 dimmed-overlay flex items-center justify-center p-margin-mobile z-50">
+<!-- Modal Card -->
+<div class="bg-surface-container-lowest w-[320px] rounded-2xl p-6 shadow-[0_10px_30px_-15px_rgba(79,70,229,0.15)] flex flex-col items-center">
+<!-- Modal Title -->
+<h2 class="text-[20px] font-bold leading-tight text-[#1E1B3A] text-center mb-6 font-headline-lg-mobile tracking-tight">
+                Are you done with this drawing?
+            </h2>
+<!-- Button Stack -->
+<div class="w-full flex flex-col gap-[8px]">
+<!-- Primary Action Button -->
+<button class="w-full h-[48px] text-white font-button-label text-button-label flex items-center justify-center hover:scale-[1.02] active:scale-95 transition-transform shadow-sm relative overflow-hidden group font-bold" style="background: linear-gradient(135deg, rgb(79, 70, 229) 0%, rgb(129, 140, 248) 100%); border-radius: 24px; box-shadow: rgba(79, 70, 229, 0.25) 0px 4px 12px;">
+<span class="relative z-10">Yes, save and exit</span>
+<div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</button>
+<!-- Secondary Action Button -->
+<button class="w-full h-[48px] rounded-full bg-white border border-[#E8E4DE] text-[#1E1B3A] font-button-label text-button-label flex items-center justify-center hover:bg-surface-container-low active:scale-95 transition-all">
+                    No, keep drawing
+                </button>
+</div>
+</div>
+</div>
+
+
+</body></html>

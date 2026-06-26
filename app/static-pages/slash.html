@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PhotoTrace AR - Splash Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f3eeff",
+                        "on-surface": "#1a1736",
+                        "surface-tint": "#4d44e3",
+                        "surface-dim": "#dbd5ff",
+                        "on-secondary-container": "#730425",
+                        "surface-container-highest": "#e4dfff",
+                        "error": "#ba1a1a",
+                        "outline": "#777587",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#6ffbbe",
+                        "primary": "#3525cd",
+                        "tertiary": "#005338",
+                        "surface-bright": "#fcf8ff",
+                        "on-surface-variant": "#464555",
+                        "on-secondary-fixed-variant": "#891933",
+                        "inverse-primary": "#c3c0ff",
+                        "background": "#FFFBF5", // Explicitly set to solid warm cream per prompt, overriding theme default for this specific screen
+                        "on-background": "#1a1736",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#fe7488",
+                        "outline-variant": "#c7c4d8",
+                        "on-primary-container": "#dad7ff",
+                        "secondary-fixed-dim": "#ffb2b9",
+                        "inverse-surface": "#302d4d",
+                        "on-tertiary-container": "#67f4b7",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-secondary-fixed": "#400010",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#eae5ff",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "tertiary-container": "#006e4b",
+                        "surface-variant": "#e4dfff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#0f0069",
+                        "on-tertiary-fixed": "#002113",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f0ebff",
+                        "primary-fixed": "#e2dfff",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "surface-container-low": "#f6f1ff",
+                        "surface": "#fcf8ff",
+                        "secondary-fixed": "#ffdadc",
+                        "secondary": "#a93349",
+                        "primary-container": "#4f46e5",
+                        
+                        // Custom colors defined in prompt
+                        "splash-cream": "#FFFBF5",
+                        "splash-text-dark": "#1E1B3A",
+                        "splash-text-light": "#6B6981"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "32px",
+                        "internal-padding": "16px",
+                        "stack-gap": "12px",
+                        "screen-margin": "24px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "subhead": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "caption": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "subhead": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        
+                        // Custom font sizes defined in prompt
+                        "splash-title": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "splash-tagline": ["22px", {"lineHeight": "1.4", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .icon-gradient-mask {
+            mask-image: url('https://lh3.googleusercontent.com/aida/AP1WRLsqRxkJFeqnqfkE_mJ1spjTFfY7OdvRcdbLeAaAcmldUAJz0yjzN87Bxwhr8ZNnEYdmG79vR-IotFQUpSCRmGfWYXrYpNT_7Bn9TtfpGp7KVl_JAyAC_Smr3XlPEanUQ4Qw5-qmRDg5aFMVLcdrFDkelUiNxPNSESnXfGaZ5TPc1F8pEzV_Rmue9YqC3TItGyxveWLTZCWDErVobzwnK5926pgGit16t9cNO81V6TomPFE7wFjUaU3IGGA');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-image: url('https://lh3.googleusercontent.com/aida/AP1WRLsqRxkJFeqnqfkE_mJ1spjTFfY7OdvRcdbLeAaAcmldUAJz0yjzN87Bxwhr8ZNnEYdmG79vR-IotFQUpSCRmGfWYXrYpNT_7Bn9TtfpGp7KVl_JAyAC_Smr3XlPEanUQ4Qw5-qmRDg5aFMVLcdrFDkelUiNxPNSESnXfGaZ5TPc1F8pEzV_Rmue9YqC3TItGyxveWLTZCWDErVobzwnK5926pgGit16t9cNO81V6TomPFE7wFjUaU3IGGA');
+            -webkit-mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+        }
+    </style>
+</head>
+<body class="bg-splash-cream min-h-screen w-full flex flex-col font-sans">
+<!-- Top 40% Empty Space -->
+<div class="h-[40vh] w-full flex-shrink-0"></div>
+<!-- Middle 30% Content Area -->
+<main class="flex-grow flex flex-col items-center justify-center px-screen-margin text-center">
+<!-- Brand Icon: 240x240px using the provided image as a mask for the gradient -->
+<div aria-hidden="true" class="w-[240px] h-[240px] icon-gradient-mask bg-gradient-to-br from-[#4F46E5] to-[#818CF8]"></div>
+<!-- 32pt gap -->
+<div class="h-[32px]"></div>
+<!-- App Name -->
+<h1 class="text-splash-title text-splash-text-dark font-bold">
+            PhotoTrace AR
+        </h1>
+<!-- 12pt gap -->
+<div class="h-[12px]"></div>
+<!-- Tagline -->
+<p class="text-splash-tagline text-splash-text-light">
+            Trace any photo. Free forever.
+        </p>
+</main>
+<!-- Bottom 30% Empty Space -->
+<div class="h-[30vh] w-full flex-shrink-0"></div>
+</body></html>

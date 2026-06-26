@@ -1,0 +1,223 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PhotoTrace AR - Camera Permission Denied</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#f1ede7",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-secondary-fixed-variant": "#2f3aa3",
+                        "outline": "#777587",
+                        "outline-variant": "#c7c4d8",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fdf9f3",
+                        "tertiary": "#8b1b34",
+                        "primary": "#3525cd",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#31302d",
+                        "on-primary-fixed": "#0f0069",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "secondary-container": "#8792fe",
+                        "surface-container-high": "#ebe8e2",
+                        "on-background": "#1c1c18",
+                        "on-primary-container": "#dad7ff",
+                        "on-surface": "#1c1c18",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "on-tertiary-container": "#ffd0d3",
+                        "primary-container": "#4f46e5",
+                        "on-secondary-fixed": "#000767",
+                        "inverse-on-surface": "#f4f0ea",
+                        "on-surface-variant": "#464555",
+                        "surface-variant": "#e6e2dc",
+                        "surface-container-low": "#f7f3ed",
+                        "surface-tint": "#4d44e3",
+                        "surface-bright": "#fdf9f3",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#c3c0ff",
+                        "background": "#fdf9f3",
+                        "on-secondary-container": "#17228f",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-tertiary-fixed": "#400010",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#e2dfff",
+                        "secondary": "#4953bc",
+                        "tertiary-container": "#ab354b",
+                        "surface-container-highest": "#e6e2dc",
+                        "tertiary-fixed": "#ffdadc",
+                        "surface-dim": "#dddad4",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "48px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "stack-md": "16px",
+                        "container-max": "1280px",
+                        "section-gap": "120px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "subheadline": ["Inter"],
+                        "button-label": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-hero": ["Inter"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "subheadline": ["24px", {"lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "500"}],
+                        "button-label": ["16px", {"lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-hero": ["85px", {"lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "caption": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #FFFBF5; /* Solid warm cream as requested */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Custom utilities based on the prompt specifics that might fall outside the exact design system mapped colors */
+        .text-coral-gradient {
+            background: linear-gradient(to right, #FB7185, #F43F5E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .bg-coral-gradient {
+            background: linear-gradient(to right, #FB7185, #F43F5E);
+        }
+        
+        /* Simulating the status bar space */
+        .status-bar-spacer {
+            height: 44px; /* Standard iOS notch height */
+            width: 100%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background min-h-screen flex flex-col relative pb-[80px]">
+<!-- Status Bar Simulation -->
+<div class="status-bar-spacer bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-md fixed top-0 w-full z-[60] flex justify-between items-end px-4 pb-2 text-[12px] font-semibold">
+<span class="">9:41</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[14px]">wifi</span>
+<span class="material-symbols-outlined text-[14px]">battery_full</span>
+</div>
+</div>
+<!-- Top AppBar (From JSON logic + prompt specifics) -->
+<!-- Note: Combining JSON style logic with the specific prompt requests (Back link, specific border) -->
+<header class="fixed top-[44px] w-full z-50 bg-[#FFFBF5]/90 backdrop-blur-md border-b border-[#E8E4DE] shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] h-16 flex items-center px-margin-mobile">
+<div class="flex items-center w-full justify-between relative">
+<!-- Left action -->
+<button aria-label="Go back" class="flex items-center text-[#4F46E5] hover:opacity-80 transition-opacity active:scale-95 duration-200 z-10">
+<span class="material-symbols-outlined text-[20px] mr-1" data-weight="regular">arrow_back</span>
+<span class="font-button-label text-button-label">Back</span>
+</button>
+<!-- Center Headline -->
+<h1 class="absolute left-0 right-0 text-center font-subheadline text-subheadline text-[#1E1B3A] pointer-events-none">
+                Camera Trace
+            </h1>
+<!-- Right empty space for flex balance -->
+<div class="w-[60px]"></div>
+</div>
+</header>
+<!-- Main Content Canvas (Empty State Hero) -->
+<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile mt-[108px] pb-8">
+<!-- Centered Vertical Stack -->
+<div class="flex flex-col items-center text-center space-y-[24px] w-full max-w-md mx-auto">
+<!-- Hero Icon Container -->
+<div class="w-[160px] h-[160px] rounded-[24px] bg-[#FAF7F2] border-2 border-[#E8E4DE] flex items-center justify-center shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)]">
+<span class="material-symbols-outlined text-[80px] text-[#6B6981]" style="font-variation-settings: 'FILL' 1;">
+                    videocam_off
+                </span>
+</div>
+<!-- Text Group -->
+<div class="space-y-[8px] flex flex-col items-center">
+<!-- Headline -->
+<h2 class="text-[28px] leading-[34px] font-bold text-[#1E1B3A]">
+                    Camera blocked
+                </h2>
+<!-- Subhead -->
+<p class="text-[16px] leading-[24px] font-normal text-[#6B6981] max-w-[280px]">
+                    We can't access your camera right now. Try Screen Trace as a lightbox instead, or grant camera permission in Settings.
+                </p>
+</div>
+<!-- Call to Actions Group -->
+<div class="flex flex-col items-center space-y-[16px] pt-4 w-full">
+<!-- Primary CTA -->
+<button class="w-[280px] h-[56px] rounded-[24px] bg-gradient-to-br from-[#4F46E5] to-[#818CF8] text-white flex items-center justify-center hover:scale-[1.02] active:scale-95 transition-transform duration-200 shadow-[0_10px_12px_rgba(79,70,229,0.2)]">
+<span class="material-symbols-outlined mr-2" style="font-variation-settings: 'FILL' 1;">desktop_windows</span>
+<span class="font-bold text-[18px]">Use Screen Trace</span>
+</button>
+<!-- Secondary CTA -->
+<button class="w-[280px] h-[56px] rounded-[12px] bg-white border border-[#E8E4DE] text-[#4F46E5] flex items-center justify-center font-semibold text-[16px] hover:bg-surface-container-low active:scale-95 transition-all duration-200 shadow-sm">
+                    Open Settings
+                </button>
+</div>
+<!-- Caption -->
+<p class="text-[12px] font-normal text-[#A09FA8] pt-2">
+                Your photos and camera data stay on your device.
+            </p>
+</div>
+</main>
+<!-- BottomNavBar Shell (As specified in JSON, but explicitly all inactive for this specific context, with prompt-specific cream bg) -->
+<!-- Note: Contextual Logic - although this is a "dead end" state technically, the prompt explicitly demanded the Bottom Nav be present. Following the prompt's exact structural request over the general "suppression" rule when explicitly instructed by the user. -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile py-2 bg-[#FFFBF5] border-t border-[#E8E4DE] z-50 pb-[env(safe-area-inset-bottom,16px)] h-[80px]">
+<!-- Studio (Inactive) -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary-container transition-colors active:scale-90 duration-200 min-w-[64px]" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1" data-icon="grid_view">grid_view</span>
+<span class="font-caption text-caption">Studio</span>
+</a>
+<!-- Explore (Inactive) -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary-container transition-colors active:scale-90 duration-200 min-w-[64px]" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1" data-icon="explore">explore</span>
+<span class="font-caption text-caption">Explore</span>
+</a>
+<!-- Learn (Inactive) -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary-container transition-colors active:scale-90 duration-200 min-w-[64px]" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1" data-icon="school">school</span>
+<span class="font-caption text-caption">Learn</span>
+</a>
+<!-- Profile (Inactive) -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary-container transition-colors active:scale-90 duration-200 min-w-[64px]" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1" data-icon="person">person</span>
+<span class="font-caption text-caption">Profile</span>
+</a>
+</nav>
+
+
+</body></html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PhotoTrace AR - Explore</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#ffffff",
+                      "surface-variant": "#e6e2dc",
+                      "on-primary-fixed": "#0f0069",
+                      "surface-container-high": "#ebe8e2",
+                      "on-tertiary-fixed-variant": "#891933",
+                      "on-background": "#1c1c18",
+                      "background": "#fdf9f3",
+                      "outline-variant": "#c7c4d8",
+                      "tertiary-fixed": "#ffdadc",
+                      "on-surface-variant": "#464555",
+                      "on-primary-fixed-variant": "#3323cc",
+                      "surface-container": "#f1ede7",
+                      "secondary-fixed": "#e0e0ff",
+                      "primary": "#3525cd",
+                      "outline": "#777587",
+                      "inverse-on-surface": "#f4f0ea",
+                      "primary-fixed-dim": "#c3c0ff",
+                      "on-error": "#ffffff",
+                      "surface-bright": "#fdf9f3",
+                      "surface": "#fdf9f3",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#dddad4",
+                      "secondary-fixed-dim": "#bdc2ff",
+                      "surface-container-highest": "#e6e2dc",
+                      "inverse-surface": "#31302d",
+                      "error-container": "#ffdad6",
+                      "surface-tint": "#4d44e3",
+                      "secondary-container": "#8792fe",
+                      "on-primary-container": "#dad7ff",
+                      "on-tertiary-fixed": "#400010",
+                      "on-secondary-container": "#17228f",
+                      "surface-container-low": "#f7f3ed",
+                      "on-surface": "#1c1c18",
+                      "on-tertiary-container": "#ffd0d3",
+                      "tertiary-fixed-dim": "#ffb2b9",
+                      "error": "#ba1a1a",
+                      "secondary": "#4953bc",
+                      "on-secondary-fixed": "#000767",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#ab354b",
+                      "inverse-primary": "#c3c0ff",
+                      "on-secondary-fixed-variant": "#2f3aa3",
+                      "tertiary": "#8b1b34",
+                      "primary-container": "#4f46e5",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#e2dfff",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-lg": "48px",
+                      "margin-desktop": "64px",
+                      "container-max": "1280px",
+                      "section-gap": "120px",
+                      "margin-mobile": "20px",
+                      "stack-sm": "8px",
+                      "stack-md": "16px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "display-hero": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "subheadline": [
+                              "Inter"
+                      ],
+                      "caption": [
+                              "Inter"
+                      ],
+                      "button-label": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "72px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-hero": [
+                              "85px",
+                              {
+                                      "lineHeight": "90px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "subheadline": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "caption": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "button-label": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        /* Hide scrollbar for horizontal scrolling but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        .glass-overlay {
+            background: linear-gradient(180deg, rgba(253, 249, 243, 0) 0%, rgba(253, 249, 243, 0.9) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-24 flex flex-col md:hidden">
+<!-- Top Navigation Area -->
+<header class="flex justify-between items-center w-full px-margin-mobile h-16 sticky top-0 z-50 bg-surface/70 backdrop-blur-xl shadow-sm">
+<h1 class="font-headline-lg-mobile text-[24px] font-extrabold text-on-surface tracking-tight">Explore</h1>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors active:scale-95">
+<span class="material-symbols-outlined text-outline" style="font-size: 24px;">search</span>
+</button>
+</header>
+<!-- Filter Chips -->
+<div class="px-margin-mobile py-stack-sm sticky top-16 z-40 bg-surface/95 backdrop-blur-md">
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
+<button class="px-5 py-2 rounded-full font-button-label text-button-label whitespace-nowrap bg-gradient-to-r from-primary-container to-secondary-container text-on-primary shadow-sm active:scale-95 transition-transform flex-shrink-0">
+                All
+            </button>
+<button class="px-5 py-2 rounded-full font-button-label text-button-label whitespace-nowrap bg-surface-container text-on-surface hover:bg-surface-variant transition-colors active:scale-95 flex-shrink-0 border border-outline-variant/30">
+                Pets
+            </button>
+<button class="px-5 py-2 rounded-full font-button-label text-button-label whitespace-nowrap bg-surface-container text-on-surface hover:bg-surface-variant transition-colors active:scale-95 flex-shrink-0 border border-outline-variant/30">
+                Cute Creatures
+            </button>
+<button class="px-5 py-2 rounded-full font-button-label text-button-label whitespace-nowrap bg-surface-container text-on-surface hover:bg-surface-variant transition-colors active:scale-95 flex-shrink-0 border border-outline-variant/30">
+                Flowers
+            </button>
+<button class="px-5 py-2 rounded-full font-button-label text-button-label whitespace-nowrap bg-surface-container text-on-surface hover:bg-surface-variant transition-colors active:scale-95 flex-shrink-0 border border-outline-variant/30">
+                Nature
+            </button>
+<button class="px-5 py-2 rounded-full font-button-label text-button-label whitespace-nowrap bg-surface-container text-on-surface hover:bg-surface-variant transition-colors active:scale-95 flex-shrink-0 border border-outline-variant/30">
+                Portrait Basics
+            </button>
+</div>
+</div>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-margin-mobile pt-stack-sm pb-stack-lg">
+<!-- Gallery Grid -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-square w-full rounded-xl border border-surface-variant bg-surface-container-lowest overflow-hidden shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] mb-3 active:scale-[0.98] transition-transform">
+<img class="w-full h-full object-cover p-6" data-alt="A clean, minimalist black line drawing of a happy, friendly golden retriever dog face on a pristine warm cream background. The lines are smooth and professional, suitable for an AR tracing template. High contrast, well-lit, simple vector style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLUJN64GofE7YIyx72lT9gcgCzKeBgEpPGwMaM7ZEaBRa09lZwDiDFD_p8s_d9KRWbDmgGFLU8vD5j3y26ZOnE_sOonjdutF_yaMtCyvyYIXit8DTLzXk25rTJ_6i5fIhN-4R_FUTA3-KBGamcFRNj9Ts1y4XQk1vj1ZgS-v-hvXuEtCA2CQV_bKJYKmH_beKkE1MvKwdMJyS0tCkUkBbqjimWSwA3QTAffS-HDeQX-y2IcOEyjj_U7gIvH1uXx-aA7uO1uwjevl5b"/>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-sm flex items-center justify-center text-outline hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<h3 class="font-button-label text-[14px] font-bold text-on-surface truncate">Friendly Dog</h3>
+<p class="font-caption text-[11px] text-outline mt-1">Easy • 10m</p>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-square w-full rounded-xl border border-surface-variant bg-surface-container-lowest overflow-hidden shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] mb-3 active:scale-[0.98] transition-transform">
+<img class="w-full h-full object-cover p-6" data-alt="A clean, minimalist black line drawing of a fluffy, sleeping cat curled up into a ball, set against a pristine warm cream background. The lines are smooth and professional, designed as a template for AR tracing. High contrast, simple vector illustration style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-ZcGgSW-p6bTbP-XuhQ0Fb_pA3ou46frf5qOo5mr1VX_14QTXrQqkzySq4IiBYNHezb9YVG5zj2RCs6bIPDPYPqGofA9X3KotMYbvEs67YuLkJd7pr1qsMlxlGwfqb84AT-C9ySmMCETXUWzmdzCG1uMcN1SwXMPQVqItXnQC29JDXzJgKxpKJggA2jj25mpl8rYNHuuA_jvbCN66kToRB9cqsx4nOuoHG3gQDX1t1IzYmsEeBm5ZrL6BjDzJWjktpTv6KLbU-qXk"/>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-sm flex items-center justify-center text-outline hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<h3 class="font-button-label text-[14px] font-bold text-on-surface truncate">Fluffy Cat</h3>
+<p class="font-caption text-[11px] text-outline mt-1">Easy • 15m</p>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-square w-full rounded-xl border border-surface-variant bg-surface-container-lowest overflow-hidden shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] mb-3 active:scale-[0.98] transition-transform">
+<img class="w-full h-full object-cover p-6" data-alt="A clean, minimalist black line drawing of a large, detailed sunflower blooming, set against a pristine warm cream background. The lines are precise and professional, crafted as an AR tracing template. High contrast, elegant botanical vector illustration style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRptEqDFx66eZnIbOUDoTL_abEb6WQCoTwPDqkeP5wIiWH3wtDprnS-KkCZuQl_ViDA1H5k5SELFmSZUp7ALCot3_uiYxtDabTvoIdAawBmIUYR2IfQt_FJxR90R6ClDBmLAjI1xQghn_Iaib8X8K3V3-l5RdpgvIjnjfEW8Yl0SUZZet_oF3lGvHOoPnM0mBZG8vZjBD5UNaA0VGNcOI9B6ao_wgpmCyJRpl42ypuzrrgpVGeeupNCHXnXQaVSsRl4y8a0Gd3E2h4"/>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-sm flex items-center justify-center text-tertiary transition-colors">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<h3 class="font-button-label text-[14px] font-bold text-on-surface truncate">Blooming Sunflower</h3>
+<p class="font-caption text-[11px] text-outline mt-1">Medium • 20m</p>
+</div>
+<!-- Card 4 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-square w-full rounded-xl border border-surface-variant bg-surface-container-lowest overflow-hidden shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] mb-3 active:scale-[0.98] transition-transform">
+<img class="w-full h-full object-cover p-6" data-alt="A clean, minimalist black line drawing of a cute little hedgehog surrounded by small leaves, set on a pristine warm cream background. The linework is smooth and professional, intended for an AR tracing guide. High contrast, charming vector art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbIVZRXqF7ckbkJwHeeRXmW4RiOfDAr6zrvHRzhhXX8fm2WqHFrRC31iPu0GgpHuB1fd6SUK0iY5dgSICMq0Mmxm43cYE7kuAgnDUO4CJOYp9tUc_0eIDuCpu9xClxmnVV1vHFaXlHZB5Bm9teF_mJ0OR15EzAoUj9vwnCcLcL04kjg7C2d5tWhkhsn-gEbhX4mby6lHWQ4ZYTGwzZ4wcf91E1lKMJJ88CC5eHixkrJt-GYSmZDVl5jGNGbSdZV9mcM2H3-z7xTkgN"/>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-sm flex items-center justify-center text-outline hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<h3 class="font-button-label text-[14px] font-bold text-on-surface truncate">Little Hedgehog</h3>
+<p class="font-caption text-[11px] text-outline mt-1">Hard • 35m</p>
+</div>
+<!-- Card 5 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-square w-full rounded-xl border border-surface-variant bg-surface-container-lowest overflow-hidden shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] mb-3 active:scale-[0.98] transition-transform">
+<img class="w-full h-full object-cover p-6" data-alt="A clean, minimalist black line drawing of a majestic mountain peak with a pine tree in the foreground, set against a pristine warm cream background. Smooth, professional linework designed for AR tracing. High contrast, nature landscape vector style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUYezQ5cIvRNfW3Krh-5cqwPH7QrOkL_d5iu6SD2hKhzDLdjydV9lEdb66kECdA8vY_GHtLkRAhl9C9F_5dkgGzuoJ030E-hfvVktpsyBrogvJX74TXVktVybwyYKwoVNcHhUxla5MXyzIXO7kIk_xGy2-By84h2dKdT4kCGh-eEXHJMgk6yA6KIjkOkLNnbVdTzjrXJVsAvMHaRH_soaAgdgvfHF5juXtCF7dQHOSE09YWZ3Ty_8bSEXyp_CNLG0_0t52Vxf_wxAs"/>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-sm flex items-center justify-center text-outline hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<h3 class="font-button-label text-[14px] font-bold text-on-surface truncate">Mountain Peak</h3>
+<p class="font-caption text-[11px] text-outline mt-1">Medium • 25m</p>
+</div>
+<!-- Card 6 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-square w-full rounded-xl border border-surface-variant bg-surface-container-lowest overflow-hidden shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] mb-3 active:scale-[0.98] transition-transform">
+<img class="w-full h-full object-cover p-6" data-alt="A clean, minimalist black line drawing of a simple, stylized human eye and eyebrow, set against a pristine warm cream background. Smooth, professional linework serving as an introductory AR tracing template for portraiture. High contrast, clean vector style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDlZlLUofgZuW6rlV3MlsNqGW3Z8aYhTqWL5OFNegAhPfBW_XAWbaYnG6VkY2GycmPQ531blNFRbmlH9wjpbBvVRVH0LuMYQ7r9_Jy_0nzpAXdND9Wy9Ts4DhISAQn73qTbNARxpWs2aocLW1gT778pUmqkge2rjqUJjt6HFJePsqB1p8oYGKatTws7YwZpBYLL1uZ0_MsMSoVW_q70f6X5BrDFhpYEYXxfXZTNE_D5PJv5Ll43Qr8Il6LfPE00kC9JU5QMUlEs_jz"/>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-sm flex items-center justify-center text-outline hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<h3 class="font-button-label text-[14px] font-bold text-on-surface truncate">Basic Eye</h3>
+<p class="font-caption text-[11px] text-outline mt-1">Easy • 5m</p>
+</div>
+</div>
+<!-- Banner Ad Placeholder -->
+<div class="mt-stack-lg mb-8 w-full h-[60px] bg-surface-variant rounded-lg flex items-center justify-center border border-outline-variant/50 relative overflow-hidden">
+<span class="font-caption text-caption text-outline font-medium tracking-widest uppercase">Advertisement</span>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-surface/30 to-transparent translate-x-[-100%] animate-[shimmer_2s_infinite]"></div>
+</div>
+</main>
+<!-- BottomNavBar JSON Render -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-surface/80 backdrop-blur-xl shadow-[0_-10px_30px_-15px_rgba(79,70,229,0.05)] rounded-t-2xl border-t border-surface-variant/30">
+<!-- Inactive Tab: Studio -->
+<button class="flex flex-col items-center justify-center text-outline hover:text-primary transition-all active:scale-90 px-4 py-1 group">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform">palette</span>
+<span class="font-caption text-[10px] font-medium">Studio</span>
+</button>
+<!-- Active Tab: Explore -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-2 active:scale-90 transition-all duration-200 shadow-sm relative">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-caption text-[10px] font-bold">Explore</span>
+<!-- Coral Pink Dot Indicator -->
+<span class="absolute top-1.5 right-4 w-2 h-2 rounded-full bg-tertiary shadow-sm"></span>
+</button>
+<!-- Inactive Tab: Learn -->
+<button class="flex flex-col items-center justify-center text-outline hover:text-primary transition-all active:scale-90 px-4 py-1 group">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform">school</span>
+<span class="font-caption text-[10px] font-medium">Learn</span>
+</button>
+<!-- Inactive Tab: Profile -->
+<button class="flex flex-col items-center justify-center text-outline hover:text-primary transition-all active:scale-90 px-4 py-1 group">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform">person</span>
+<span class="font-caption text-[10px] font-medium">Profile</span>
+</button>
+</nav>
+<style>
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</body></html>
