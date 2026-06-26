@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Profile - PhotoTrace AR</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#ab354b",
+                        "surface-container-highest": "#e6e2dc",
+                        "tertiary-fixed": "#ffdadc",
+                        "surface-dim": "#dddad4",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#e2dfff",
+                        "secondary": "#4953bc",
+                        "on-tertiary-fixed": "#400010",
+                        "background": "#fdf9f3",
+                        "on-secondary-container": "#17228f",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#c3c0ff",
+                        "surface-variant": "#e6e2dc",
+                        "surface-container-low": "#f7f3ed",
+                        "surface-tint": "#4d44e3",
+                        "surface-bright": "#fdf9f3",
+                        "on-surface-variant": "#464555",
+                        "primary-container": "#4f46e5",
+                        "on-secondary-fixed": "#000767",
+                        "inverse-on-surface": "#f4f0ea",
+                        "on-surface": "#1c1c18",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "on-tertiary-container": "#ffd0d3",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "secondary-container": "#8792fe",
+                        "surface-container-high": "#ebe8e2",
+                        "on-background": "#1c1c18",
+                        "on-primary-container": "#dad7ff",
+                        "on-primary-fixed": "#0f0069",
+                        "inverse-surface": "#31302d",
+                        "tertiary": "#8b1b34",
+                        "primary": "#3525cd",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "outline": "#777587",
+                        "outline-variant": "#c7c4d8",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fdf9f3",
+                        "surface-container": "#f1ede7",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-secondary-fixed-variant": "#2f3aa3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "48px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "stack-md": "16px",
+                        "container-max": "1280px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "button-label": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-hero": ["Inter"],
+                        "caption": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "subheadline": ["Inter"]
+                    },
+                    "fontSize": {
+                        "button-label": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-hero": ["85px", { "lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "caption": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "subheadline": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen text-on-background pb-24 pt-20 antialiased">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-md shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] flex justify-between items-center px-margin-mobile h-16">
+<button aria-label="Camera Options" class="text-outline dark:text-outline-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">camera_enhance</span>
+</button>
+<h1 class="font-subheadline text-subheadline font-bold text-on-surface">Profile</h1>
+<button aria-label="Settings" class="text-outline dark:text-outline-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md mx-auto">
+<!-- Level Card Zone -->
+<section class="px-margin-mobile">
+<div class="bg-gradient-to-br from-primary-container to-primary rounded-[16px] p-6 shadow-[0_10px_30px_-15px_rgba(79,70,229,0.3)] relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+<!-- Decorative AR Glass Flare -->
+<div class="absolute -top-12 -right-12 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition-colors duration-500"></div>
+<p class="font-caption text-caption text-on-primary/80 uppercase tracking-widest mb-1 text-[11px]">Level 2</p>
+<h2 class="font-headline-lg-mobile text-[28px] leading-tight font-bold text-on-primary mb-8 relative z-10">Steady Hand</h2>
+<div class="relative z-10">
+<div class="w-full bg-on-primary/30 h-[6px] rounded-full mb-3 overflow-hidden">
+<div class="bg-on-primary h-full rounded-full w-[40%] transition-all duration-1000 ease-out"></div>
+</div>
+<p class="font-caption text-caption text-[12px] text-on-primary/90">5 more drawings to reach Shape Builder</p>
+</div>
+</div>
+</section>
+<!-- Stats Row -->
+<section class="px-margin-mobile mt-8">
+<div class="grid grid-cols-4 gap-2">
+<div class="bg-surface-container-lowest rounded-[12px] border border-surface-variant p-4 text-center shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-md transition-shadow">
+<span class="font-subheadline text-[24px] font-bold text-primary-container block leading-none mb-1.5">12</span>
+<span class="font-caption text-[11px] text-outline block leading-tight">Drawings</span>
+</div>
+<div class="bg-surface-container-lowest rounded-[12px] border border-surface-variant p-4 text-center shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-md transition-shadow">
+<span class="font-subheadline text-[24px] font-bold text-primary-container block leading-none mb-1.5">1</span>
+<span class="font-caption text-[11px] text-outline block leading-tight">Lessons</span>
+</div>
+<div class="bg-surface-container-lowest rounded-[12px] border border-surface-variant p-4 text-center shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-md transition-shadow">
+<span class="font-subheadline text-[24px] font-bold text-primary-container block leading-none mb-1.5">5</span>
+<span class="font-caption text-[11px] text-outline block leading-tight">Imports</span>
+</div>
+<div class="bg-surface-container-lowest rounded-[12px] border border-surface-variant p-4 text-center shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-md transition-shadow">
+<span class="font-subheadline text-[24px] font-bold text-primary-container block leading-none mb-1.5">45m</span>
+<span class="font-caption text-[11px] text-outline block leading-tight">Practice</span>
+</div>
+</div>
+</section>
+<!-- Badges Zone -->
+<section class="mt-10">
+<h3 class="font-button-label text-button-label font-bold text-on-surface px-margin-mobile mb-4">Badges</h3>
+<div class="flex overflow-x-auto px-margin-mobile gap-3 pb-4 snap-x no-scrollbar">
+<!-- Earned Badges -->
+<div class="flex-shrink-0 w-[80px] h-[80px] bg-gradient-to-br from-secondary-container to-secondary rounded-[12px] flex flex-col items-center justify-center p-2 snap-center shadow-[0_4px_10px_-4px_rgba(79,70,229,0.2)]">
+<span class="text-2xl mb-1 block">🥇</span>
+<span class="font-caption text-[10px] leading-tight text-on-secondary text-center">First Drawing</span>
+</div>
+<div class="flex-shrink-0 w-[80px] h-[80px] bg-gradient-to-br from-secondary-container to-secondary rounded-[12px] flex flex-col items-center justify-center p-2 snap-center shadow-[0_4px_10px_-4px_rgba(79,70,229,0.2)]">
+<span class="text-2xl mb-1 block">🏅</span>
+<span class="font-caption text-[10px] leading-tight text-on-secondary text-center">Lesson Finisher</span>
+</div>
+<div class="flex-shrink-0 w-[80px] h-[80px] bg-gradient-to-br from-secondary-container to-secondary rounded-[12px] flex flex-col items-center justify-center p-2 snap-center shadow-[0_4px_10px_-4px_rgba(79,70,229,0.2)]">
+<span class="text-2xl mb-1 block">🗺️</span>
+<span class="font-caption text-[10px] leading-tight text-on-secondary text-center">Import Explorer</span>
+</div>
+<!-- Locked Badges -->
+<div class="flex-shrink-0 w-[80px] h-[80px] bg-surface rounded-[12px] border border-surface-variant flex flex-col items-center justify-center p-2 snap-center">
+<span class="material-symbols-outlined text-outline mb-1" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-caption text-[10px] leading-tight text-outline text-center">3-Day Streak</span>
+</div>
+<div class="flex-shrink-0 w-[80px] h-[80px] bg-surface rounded-[12px] border border-surface-variant flex flex-col items-center justify-center p-2 snap-center">
+<span class="material-symbols-outlined text-outline mb-1" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-caption text-[10px] leading-tight text-outline text-center">Style Master</span>
+</div>
+<div class="flex-shrink-0 w-[80px] h-[80px] bg-surface rounded-[12px] border border-surface-variant flex flex-col items-center justify-center p-2 snap-center">
+<span class="material-symbols-outlined text-outline mb-1" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-caption text-[10px] leading-tight text-outline text-center">No-Guide</span>
+</div>
+</div>
+</section>
+<!-- Tabs Zone -->
+<section class="mt-6 px-margin-mobile">
+<div class="flex space-x-8 border-b border-surface-variant">
+<button class="pb-3 font-button-label text-button-label font-bold text-on-surface border-b-2 border-tertiary-container relative -bottom-[1px]">Favorites</button>
+<button class="pb-3 font-button-label text-button-label text-outline hover:text-on-surface transition-colors">Imports</button>
+<button class="pb-3 font-button-label text-button-label text-outline hover:text-on-surface transition-colors">Album</button>
+</div>
+</section>
+<!-- Content Zone -->
+<section class="mt-6 px-margin-mobile grid grid-cols-2 gap-4 pb-8">
+<div class="bg-surface-container-lowest rounded-[12px] border border-surface-variant overflow-hidden shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.15)] transition-shadow">
+<div class="aspect-square bg-surface flex items-center justify-center p-4">
+<div class="w-full h-full bg-contain bg-no-repeat bg-center mix-blend-multiply opacity-80" data-alt="A minimalist black line drawing of a geometric wolf head on a pristine warm cream background, sharp vectors, modern tattoo style, high contrast, evenly lit." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAo8KPp76QVPhXxEG9q3xdGeSkedhR6_c7-bwWQ2Wj1ZoczEq4wX0XQB7ReOBCt_mlhdtHXIDwWAQ_e1sD-U6Qc-4D_ZybMNqZagujREYaoPCZ8A44UyvVrTn9DjYVb14dmzFMDl1M2H3h5n99_CwuXlC-5JWB_bnwzouWoLVCey-IbobzLIWZtKdCb6xskQxfV0uxAlXZNBxMoJToF91kpLBnj7RTnXJe_dZURzUS6onhYI-0yc-CgHYcnpCBM5LaSqO8kdrfZmE-i')"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[12px] border border-surface-variant overflow-hidden shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.15)] transition-shadow">
+<div class="aspect-square bg-surface flex items-center justify-center p-4">
+<div class="w-full h-full bg-contain bg-no-repeat bg-center mix-blend-multiply opacity-80" data-alt="A delicate continuous line art illustration of a blooming rose, black ink on a warm cream surface, elegant and minimalist aesthetic, soft studio lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDwqBMC1cTc_e59n7NE4L-O3L8atuWsgkbTcH_vJf33nNnP6B4oBHZ5s8cunNuaP2Hfh35y3rOUZuxqk2G6dSpPJwkcKAb_T8Xdbo0MoYcKMw94Vb6BQ_sFkFmbhnpMnCAmGazwVYLDwxc3WN-jV7xuplv6Ckn-6ZVXST-V8QHz--y_CKmYH47LHPoURmFAngdizFWNysQdEjN_e9DpzjxJaBfr6_L_sK405IPKpwemvavBggG-elOg0fvVOKnje4SbFRl8ebQ06Go-')"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[12px] border border-surface-variant overflow-hidden shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.15)] transition-shadow">
+<div class="aspect-square bg-surface flex items-center justify-center p-4">
+<div class="w-full h-full bg-contain bg-no-repeat bg-center mix-blend-multiply opacity-80" data-alt="A stylized minimalist black line drawing of an unalome lotus symbol on a light cream canvas, serene and spiritual aesthetic, sharp vector quality." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLUMB-zpXV5kW2ajgFRGjyjwNQxI7XYNZH6x_jM24vPRE3UJrXus4S3LLS2ByJttFWPdIsjlgVEYBXUdvmVLxfe0qUZEO76giyiYQ4ENXfXyQm_cxp47idDHM1Xonkmv7-NoRDfNi2H-nFVpQd87iDX0rph_0TQLOPlAy5TMdnw1ivoruqpP9zcBqcV1v5XkJijvoy-eAHqyKsicf7bGyH0-i6gjLuY_1V7xRhxKVZoJBkh_RYwbI10ka8EdKixNdKeQWOBxC4oAoW')"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[12px] border border-surface-variant overflow-hidden shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.15)] transition-shadow">
+<div class="aspect-square bg-surface flex items-center justify-center p-4">
+<div class="w-full h-full bg-contain bg-no-repeat bg-center mix-blend-multiply opacity-80" data-alt="A simple, elegant continuous line drawing of a cat silhouette in black ink on a smooth warm cream background, modern artistic style, minimalist." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDsNcZprFEykVV4HNF-rMnGVex2xVfRijlIySaEhmb3pcH_ysHwflSaF6KdzZ7zVSRg5IQcQYTIHUAnTlsrz37O3S1JGOejKGkzmstWMHUhuXssDzmRvXkBbqav9VG33yPXzuFzdLTb71_22nmKQkTrSvsKUcqugQqgH1UMaBbe4g4v3ie3GKFIgBHzk5pasU278zyMDmg_Tuu9zpuljfX_VYRbLzLv4UQhSa9vp3-AKrsowJrQPV-a6ndr0p5o9GT862PgkPd80zGy')"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile py-2 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl border-t border-outline/10 z-50 rounded-t-xl pb-6 shadow-[0_-10px_30px_-15px_rgba(79,70,229,0.05)]">
+<button class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary-container transition-colors active:scale-90 transition-transform duration-200 w-16">
+<span class="material-symbols-outlined mb-1">grid_view</span>
+<span class="font-caption text-caption text-[10px]">Studio</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary-container transition-colors active:scale-90 transition-transform duration-200 w-16">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-caption text-caption text-[10px]">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary-container transition-colors active:scale-90 transition-transform duration-200 w-16">
+<span class="material-symbols-outlined mb-1">school</span>
+<span class="font-caption text-caption text-[10px]">Learn</span>
+</button>
+<button class="flex flex-col items-center justify-center relative group w-16 active:scale-90 transition-transform duration-200">
+  <span class="material-symbols-outlined mb-1 text-[#4F46E5]" style="font-variation-settings: 'FILL' 1;">person</span>
+  <span class="font-caption text-[10px] font-bold text-on-surface">Profile</span>
+  <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#FB7185] rounded-full"></div>
+</button>
+</nav>
+
+
+</body></html>
