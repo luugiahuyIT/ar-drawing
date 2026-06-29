@@ -11,6 +11,7 @@ export default [
   route("camera-trace", "routes/camera-trace.tsx"),
   route("screen-trace", "routes/screen-trace.tsx"),
   route("not-allowed", "routes/not-allowed.tsx"),
+  route("capture-complete", "routes/capture-complete.tsx"),
   route("template/:id", "routes/template-detail.tsx"),
   route("settings", "routes/settings.tsx"),
   route("faq", "routes/faq.tsx"),

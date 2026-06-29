@@ -5,6 +5,9 @@ import { Slider } from "../components/Slider";
 import { CameraTraceTipsSheet } from "../components/CameraTraceTipsSheet";
 import { ConfirmModal } from "../components/ConfirmModal";
 import { ExportBottomSheet } from "../components/ExportBottomSheet";
+import Webcam from "react-webcam";
+import { useRef } from "react";
+import { useCaptureStore } from "../store/useCaptureStore";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "PhotoTrace AR - Live AR Mode" }];
@@ -23,6 +26,20 @@ export default function CameraTrace() {
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
   const [isExportOpen, setIsExportOpen] = useState(false);
 
+  const webcamRef = useRef<Webcam>(null);
+  const setCapturedImage = useCaptureStore((state) => state.setCapturedImage);
+
+  const handleComplete = () => {
+    const imageSrc = webcamRef.current?.getScreenshot();
+    if (imageSrc) {
+      setCapturedImage(imageSrc);
+      navigate('/capture-complete');
+    } else {
+      // Fallback if camera is not ready
+      navigate('/capture-complete');
+    }
+  };
+
   const handleSaveAndExit = () => {
     const existingStr = localStorage.getItem('album-images');
     const existing = existingStr ? JSON.parse(existingStr) : [];
@@ -40,11 +57,6 @@ export default function CameraTrace() {
   return (
     <div className="bg-surface text-on-surface h-screen w-screen overflow-hidden font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
       <style>{`
-        .camera-bg {
-          background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDBNkAT8eOs-v43bePeWOXrBPfse0iGP9nsEQoVhWqMBZ7lSXT6pVlh4dgE24CDczsQ-sctf29wT4MPpX40I8IG4zG3lRCo4TYw_AvOjVK5eBLtbAaWfBwFf1COdAwB-JGuKfNX9vBCXDz8OTiVnyad5xICV3ThgKerRdHdQLeuT13Pe_uRrYdCL91b2zjnd-iG-9Hi9hEaZlXpmx0nmlx2RrvNXGrQf352B-zJHz_UWJysPcY-hrJGNiGALxiOJ_pvBIE0TFvjGhwp);
-          background-size: cover;
-          background-position: center;
-        }
         .top-gradient {
           background: linear-gradient(to bottom, rgba(30, 27, 58, 0.7) 0%, transparent 100%);
         }
@@ -54,7 +66,18 @@ export default function CameraTrace() {
       `}</style>
 
       {/* AR Camera View Container */}
-      <main className="relative h-full w-full camera-bg">
+      <main className="relative h-full w-full bg-black">
+        {/* The Webcam Background */}
+        <div className="absolute inset-0 z-0">
+          <Webcam
+            audio={false}
+            ref={webcamRef}
+            screenshotFormat="image/jpeg"
+            className="w-full h-full object-cover"
+            videoConstraints={{ facingMode: "environment" }}
+          />
+        </div>
+
         {/* AR Overlay Layer (The traced image) */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 pt-[120px] pb-[220px] px-8">
           <div className="relative w-full h-full max-w-[450px] max-h-[450px] flex items-center justify-center" style={{ opacity: opacity / 100 }}>
@@ -94,7 +117,7 @@ export default function CameraTrace() {
 
           {/* Right Actions */}
           <div className="pt-4 pr-4 md:pr-0">
-            <button onClick={() => setIsConfirmOpen(true)} className="text-white font-button-label text-[16px] px-6 py-3 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2" style={{ background: "linear-gradient(135deg, rgb(79, 70, 229) 0%, rgb(129, 140, 248) 100%)", borderRadius: "24px", boxShadow: "rgba(79, 70, 229, 0.25) 0px 4px 12px" }}>
+            <button onClick={handleComplete} className="text-white font-button-label text-[16px] px-6 py-3 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2" style={{ background: "linear-gradient(135deg, rgb(79, 70, 229) 0%, rgb(129, 140, 248) 100%)", borderRadius: "24px", boxShadow: "rgba(79, 70, 229, 0.25) 0px 4px 12px" }}>
               <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>check_circle</span>
               Complete
             </button>

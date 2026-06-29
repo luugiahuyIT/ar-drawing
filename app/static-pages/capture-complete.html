@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Capture Preview - Camera Trace v2 (SCR-3.7)</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#400010",
+                        "primary-fixed": "#e2dfff",
+                        "on-surface-variant": "#464555",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "inverse-primary": "#c3c0ff",
+                        "surface-variant": "#e6e2dc",
+                        "surface-container": "#f1ede7",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#ebe8e2",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "tertiary-fixed": "#ffdadc",
+                        "tertiary-container": "#ab354b",
+                        "secondary-container": "#8792fe",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fdf9f3",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f7f3ed",
+                        "surface": "#fdf9f3",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "on-primary-fixed": "#0f0069",
+                        "surface-dim": "#dddad4",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-surface": "#1c1c18",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c7c4d8",
+                        "on-background": "#1c1c18",
+                        "background": "#fdf9f3",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-secondary-fixed": "#000767",
+                        "on-error": "#ffffff",
+                        "primary": "#3525cd",
+                        "secondary": "#4953bc",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f4f0ea",
+                        "on-primary-container": "#dad7ff",
+                        "surface-tint": "#4d44e3",
+                        "on-secondary-fixed-variant": "#2f3aa3",
+                        "outline": "#777587",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "inverse-surface": "#31302d",
+                        "on-tertiary-container": "#ffd0d3",
+                        "primary-container": "#4f46e5",
+                        "on-secondary-container": "#17228f",
+                        "tertiary": "#8b1b34",
+                        "surface-container-highest": "#e6e2dc",
+                        "warm-cream": "#FFFBF5",
+                        "custom-indigo": "#4F46E5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "custom-24": "24px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "section-gap": "120px",
+                        "margin-desktop": "64px",
+                        "stack-lg": "48px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "custom-24": "24px",
+                        "custom-56": "56px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "caption": ["Inter"],
+                        "button-label": ["Inter"],
+                        "subheadline": ["Inter"],
+                        "display-hero": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "jakarta": ["Plus Jakarta Sans", "sans-serif"],
+                        "vietnam": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "caption": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "button-label": ["16px", {"lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "subheadline": ["24px", {"lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "500"}],
+                        "display-hero": ["85px", {"lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-md": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "custom-heading": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "custom-subtitle": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "custom-btn-main": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "custom-btn-tertiary": ["14px", {"lineHeight": "20px", "fontWeight": "600"}]
+                    },
+                    "boxShadow": {
+                        "ambient": "0 10px 30px -15px rgba(79, 70, 229, 0.05)",
+                        "ambient-btn": "0 8px 24px -12px rgba(79, 70, 229, 0.25)"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-warm-cream h-full flex flex-col items-center justify-between font-vietnam text-custom-indigo antialiased max-w-md mx-auto relative overflow-hidden">
+<!-- Top Section -->
+<header class="w-full flex flex-col items-center pt-2 pb-6 px-custom-24 z-10 shrink-0">
+<!-- Android Status Bar Mockup -->
+<div class="w-full flex justify-between items-center text-[11px] font-medium tracking-wide text-custom-indigo mb-6">
+<span>9:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[14px]">wifi</span>
+<span class="material-symbols-outlined text-[14px]">battery_full</span>
+</div>
+</div>
+<h1 class="font-jakarta text-custom-heading text-custom-indigo mb-1 text-center">Looks good?</h1>
+<p class="font-vietnam text-custom-subtitle text-custom-indigo/70 text-center">We captured a clean photo of your drawing.</p>
+</header>
+<!-- Middle Section: Preview Card -->
+<main class="w-full flex-grow flex items-center justify-center px-custom-24 py-4 z-10">
+<div class="w-full h-full max-h-[530px] rounded-custom-24 overflow-hidden shadow-ambient bg-white border border-outline-variant/30 flex items-center justify-center relative group">
+<img alt="Captured drawing preview" class="w-full h-full object-contain p-2" data-alt="A highly detailed, hand-drawn pencil sketch of a cute, sleepy fox curled up. The style is soft, precise, and expressive, resembling professional illustration work. The background is a stark white paper texture, enhancing the contrast of the graphite lines. The image is brightly lit, adhering to a clean, modern light-mode aesthetic with a sense of wonder and clarity, typical of an augmented reality design tool preview." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjiskcyjyL-d5VOhk7WJR0y3VCxurkV0cqr7j2xS2aYl9bgQsMvOrQpx6aO4r7TVDHOMv8-TNZLtwKeWtUTpd2CpvuwJ7ihvoDEkj5HUIeEzYsPEP4Tlp5KBiGTzqTmFnpDb38-A4thVOD-8gtZJFn6SvG3f82-cBt4jagzeeL2xtJlpSNVMXj6UBe14HrZYk4YpkOxFhj_irNGMetrPGOLFMh4eWRjzvhizun5v6JbGtqbSL-nF99yfG8Ok4ckD7GIJ4uNQLbmHEA"/>
+<!-- Decorative corner elements for 'scanner' feel -->
+<div class="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-custom-indigo/20 rounded-tl-lg"></div>
+<div class="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-custom-indigo/20 rounded-tr-lg"></div>
+<div class="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-custom-indigo/20 rounded-bl-lg"></div>
+<div class="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-custom-indigo/20 rounded-br-lg"></div>
+</div>
+</main>
+<!-- Bottom Section: Buttons -->
+<footer class="w-full px-custom-24 pb-12 pt-6 flex flex-col gap-4 z-10 shrink-0">
+<!-- Save Button -->
+<button class="w-full h-custom-56 rounded-custom-24 bg-custom-indigo text-white font-jakarta text-custom-btn-main shadow-ambient-btn hover:bg-custom-indigo/90 active:translate-y-[2px] active:shadow-sm transition-all duration-200 flex items-center justify-center gap-2">
+            Save
+        </button>
+<!-- Retake Button -->
+<button class="w-full h-custom-56 rounded-custom-24 bg-white border-2 border-custom-indigo text-custom-indigo font-jakarta text-custom-btn-main hover:bg-custom-indigo/5 active:translate-y-[2px] transition-all duration-200 flex items-center justify-center gap-2">
+            Retake
+        </button>
+<!-- Save Outline Only Button -->
+<button class="w-full py-2 text-custom-indigo/70 font-jakarta text-custom-btn-tertiary hover:text-custom-indigo active:scale-95 transition-all duration-200 text-center">
+            Save outline only
+        </button>
+</footer>
+</body></html>
