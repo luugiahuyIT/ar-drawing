@@ -56,7 +56,7 @@ export default function TemplateDetail() {
 
       <main className="flex-1 w-full max-w-[1080px] mx-auto px-margin-mobile pb-stack-lg">
         {/* Hero Zone (Preview) */}
-        <div className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-video rounded-xl bg-surface-container border border-surface-variant p-4 mt-stack-sm shadow-sm flex items-center justify-center overflow-hidden">
+        <div className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-video rounded-xl border border-surface-variant p-4 mt-stack-sm shadow-sm flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#F3E4D1' }}>
           <div 
             className="absolute inset-0 bg-contain bg-center bg-no-repeat m-6 mix-blend-multiply opacity-90" 
             style={{ backgroundImage: `url('${item.imageUrl}')` }}
@@ -95,19 +95,19 @@ export default function TemplateDetail() {
             <div className="flex gap-4 px-margin-mobile w-max mx-auto snap-x snap-mandatory">
               {/* Hardcoded similar templates for now */}
             <button className="shrink-0 snap-start active:scale-95 transition-transform text-left">
-              <div className="w-[120px] h-[120px] rounded-xl bg-surface-container border border-surface-variant flex items-center justify-center overflow-hidden mb-2">
+              <div className="w-[120px] h-[120px] rounded-xl border border-surface-variant flex items-center justify-center overflow-hidden mb-2" style={{ backgroundColor: '#F3E4D1' }}>
                 <div className="w-full h-full bg-cover bg-center mix-blend-multiply opacity-80" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBdbgxl2E_Jd4M6C563c2bCHmqcOF5I5DjFxuOMGOMQ9sl8YTgIqt7ZNmApEtOrVytMq5ZNYWhKDAAbacYLfVMA30o0d85o1npSL4RVp9t2afSdF_Uzjgr7srPm65eQMyZllnuQAM8u6vFdJiL9n2gjumG9GJBvQZQlJJDq6u9tDCQgPoWoiaAh3YM1aumD5bwjdhXd7Igiy4DUFVLuTnBrpaeCw1cg4-2Frg9mPigmPnaxEbfZeQHQ4G1bUNK6PZ5Aztmb_KgILruL')" }}></div>
               </div>
               <span className="font-caption text-caption text-on-surface line-clamp-1">Wise Owl</span>
             </button>
             <button className="shrink-0 snap-start active:scale-95 transition-transform text-left">
-              <div className="w-[120px] h-[120px] rounded-xl bg-surface-container border border-surface-variant flex items-center justify-center overflow-hidden mb-2">
+              <div className="w-[120px] h-[120px] rounded-xl border border-surface-variant flex items-center justify-center overflow-hidden mb-2" style={{ backgroundColor: '#F3E4D1' }}>
                 <div className="w-full h-full bg-cover bg-center mix-blend-multiply opacity-80" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcffokjucp30PLFpdSLrhvvKcFZMnpx_f2XV0xiWIkDHJHPh6PB19cnp-AOa16Pvz5x2wqQNuKcdTOHvryMiozyqTCO5hDpHMxrXRBurCi2oA7WS6c1ojrAMNFE86Yq5ubHeqEu3fXJbsZZYkDJ_bdXesHWcF3YrppAHr89pZ83YMpjjO7NNtkoLY0gIBU9b1k-YsZhM3d4G6RnecX8mmuXa9-MKjDf4N_d-qV17Qfd_QRIXCTcGBgGaaBdQPl3LkCR6d3WNayGm69')" }}></div>
               </div>
               <span className="font-caption text-caption text-on-surface line-clamp-1">Playful Kitten</span>
             </button>
             <button className="shrink-0 snap-start active:scale-95 transition-transform text-left">
-              <div className="w-[120px] h-[120px] rounded-xl bg-surface-container border border-surface-variant flex items-center justify-center overflow-hidden mb-2">
+              <div className="w-[120px] h-[120px] rounded-xl border border-surface-variant flex items-center justify-center overflow-hidden mb-2" style={{ backgroundColor: '#F3E4D1' }}>
                 <div className="w-full h-full bg-cover bg-center mix-blend-multiply opacity-80" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuD2Y4acrQUHELjqOLmpog7FJFDUoR9PEphXRnfC4COJUwvo8dmPQ0MHyGTyC8x7PMgUNYeZjB_t68Q7UJyWxk3S3H8MLT-rDHIOdlIr9GMWN1Z_lF14Om8QLlQfaO5UUDvTTzZIly9vO8MEkdUU4leXu4TrAKMJ0bLjb_WIIbqcdwhDn6lmKhKJzGShXiPJBf54KtsjO_dmVVPVA3qdwvCpAG9HbMNwLJEcmeI_mW8h_U2LX2NuwX1hftC4NynliRRB_9hHcZ357At8')" }}></div>
               </div>
               <span className="font-caption text-caption text-on-surface line-clamp-1">Geo Wolf</span>

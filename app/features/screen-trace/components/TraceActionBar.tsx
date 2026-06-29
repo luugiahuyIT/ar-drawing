@@ -1,7 +1,11 @@
 import { Link } from "react-router";
 import { CameraTraceTipsSheet } from "~/components/CameraTraceTipsSheet";
 
-export function TraceActionBar() {
+interface TraceActionBarProps {
+  onComplete?: () => void;
+}
+
+export function TraceActionBar({ onComplete }: TraceActionBarProps) {
   return (
     <header className="absolute top-0 left-0 w-full z-10 px-[8px] py-[16px] flex justify-between items-start h-32 pointer-events-none">
       {/* Left Actions */}
@@ -21,7 +25,7 @@ export function TraceActionBar() {
       
       {/* Right Actions */}
       <div className="pt-4 pr-4 md:pr-0">
-        <button className="pointer-events-auto text-white font-button-label text-[16px] px-6 py-3 rounded-[24px] shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center" style={{ background: "linear-gradient(135deg, rgb(79, 70, 229) 0%, rgb(129, 140, 248) 100%)", boxShadow: "rgba(79, 70, 229, 0.25) 0px 4px 12px" }}>
+        <button onClick={onComplete} className="pointer-events-auto text-white font-button-label text-[16px] px-6 py-3 rounded-[24px] shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center" style={{ background: "linear-gradient(135deg, rgb(79, 70, 229) 0%, rgb(129, 140, 248) 100%)", boxShadow: "rgba(79, 70, 229, 0.25) 0px 4px 12px" }}>
           Complete
         </button>
       </div>

@@ -54,8 +54,8 @@ export default function NotAllowedRoute() {
               <span className="font-bold text-[18px]">Use Screen Trace</span>
             </button>
             <button 
-              onClick={() => navigate(-1)}
-              className="w-[280px] h-[56px] rounded-[12px] bg-white border border-[#E8E4DE] text-[#4F46E5] flex items-center justify-center font-semibold text-[16px] hover:bg-surface-container-low active:scale-95 transition-all duration-200 shadow-sm"
+              onClick={() => {}}
+              className="w-[280px] h-[56px] rounded-[12px] bg-white border border-[#E8E4DE] text-[#4F46E5] flex items-center justify-center font-semibold text-[16px] hover:bg-surface-container-low active:scale-95 transition-all duration-200 shadow-sm opacity-50 cursor-not-allowed"
             >
               Open Settings
             </button>

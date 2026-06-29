@@ -4,8 +4,7 @@ interface CategoryListProps {
 
 export function CategoryList({ onSelect }: CategoryListProps) {
   const categories = [
-    "Pets", "Flowers", "Animals", "Nature", 
-    "Portraits", "Fantasy", "Lettering", "Geometry", "Architecture"
+    "Dog", "Cat", "Monster"
   ];
 
   return (

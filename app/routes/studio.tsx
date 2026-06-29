@@ -1,6 +1,6 @@
 import type { Route } from "./+types/studio";
 import { useRef } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useStudioStore } from "../store";
 
 export function meta({}: Route.MetaArgs) {
@@ -57,24 +57,16 @@ export default function Studio() {
             <div className="absolute inset-0 bg-ar-grid"></div>
           </div>
 
-          {/* Status Bar Spacer (Simulated) */}
-          <div className="h-12 w-full flex justify-between items-center px-6 text-sm font-medium text-on-surface-variant/80 z-50">
-            <span className="">9:41</span>
-            <div className="flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 1" }}>signal_cellular_4_bar</span>
-              <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 1" }}>wifi</span>
-              <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 1" }}>battery_full</span>
-            </div>
-          </div>
+
 
           {/* TopAppBar */}
           <header className="flex justify-between items-center w-full px-[20px] h-16 sticky top-0 z-50 bg-surface/70 backdrop-blur-xl shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] border-b border-surface-variant/50">
             <div className="flex items-center gap-3">
               <h1 className="font-headline-lg-mobile font-extrabold text-primary tracking-tight text-2xl">Studio</h1>
             </div>
-            <button className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-primary-container/10 active:scale-95 transition-all">
+            <Link to="/settings" className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-primary-container/10 active:scale-95 transition-all">
               <span className="material-symbols-outlined text-2xl">settings</span>
-            </button>
+            </Link>
           </header>
 
           {/* Main Content Canvas (Empty State Hero) */}
@@ -117,15 +109,7 @@ export default function Studio() {
       ) : (
         // --- IMPORTED STATE ---
         <div className="bg-surface text-on-surface h-full flex flex-col font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container min-h-screen">
-          {/* Status Bar */}
-          <div className="h-6 w-full flex justify-between items-center px-4 bg-surface text-on-surface z-50 relative shrink-0 mt-2">
-            <div className="text-xs font-medium">9:41</div>
-            <div className="flex items-center gap-1">
-              <span className="material-symbols-outlined text-[14px]">signal_cellular_4_bar</span>
-              <span className="material-symbols-outlined text-[14px]">wifi</span>
-              <span className="material-symbols-outlined text-[14px] rotate-90">battery_full</span>
-            </div>
-          </div>
+
           
           {/* Top App Bar */}
           <header className="flex justify-between items-center w-full px-margin-mobile h-16 sticky top-0 z-50 bg-surface/70 backdrop-blur-xl shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] border-b border-surface-variant/50">
@@ -137,9 +121,9 @@ export default function Studio() {
                 <span className="material-symbols-outlined text-sm font-bold">add</span>
                 New
               </button>
-              <button className="text-outline hover:bg-primary-container/10 transition-colors active:scale-95 p-1 rounded-full flex items-center justify-center">
+              <Link to="/settings" className="text-outline hover:bg-primary-container/10 transition-colors active:scale-95 p-1 rounded-full flex items-center justify-center">
                 <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>settings</span>
-              </button>
+              </Link>
             </div>
           </header>
           

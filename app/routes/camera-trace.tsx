@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from "react-router";
 import { useState } from "react";
 import { Slider } from "../components/Slider";
 import { CameraTraceTipsSheet } from "../components/CameraTraceTipsSheet";
+import { ConfirmModal } from "../components/ConfirmModal";
+import { ExportBottomSheet } from "../components/ExportBottomSheet";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "PhotoTrace AR - Live AR Mode" }];
@@ -16,6 +18,24 @@ export default function CameraTrace() {
   const [opacity, setOpacity] = useState(50);
   const [isFrozen, setIsFrozen] = useState(false);
   const [isMirrored, setIsMirrored] = useState(false);
+  const [activeTab, setActiveTab] = useState<'OPACITY' | 'CAMERA' | 'IMAGE'>('OPACITY');
+  const [isHidden, setIsHidden] = useState(false);
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+  const [isExportOpen, setIsExportOpen] = useState(false);
+
+  const handleSaveAndExit = () => {
+    const existingStr = localStorage.getItem('album-images');
+    const existing = existingStr ? JSON.parse(existingStr) : [];
+    existing.unshift({
+      id: Date.now(),
+      image: imageUrl,
+      date: 'Just now'
+    });
+    localStorage.setItem('album-images', JSON.stringify(existing));
+    
+    setIsConfirmOpen(false);
+    setIsExportOpen(true);
+  };
 
   return (
     <div className="bg-surface text-on-surface h-screen w-screen overflow-hidden font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
@@ -74,50 +94,184 @@ export default function CameraTrace() {
 
           {/* Right Actions */}
           <div className="pt-4 pr-4 md:pr-0">
-            <button className="text-white font-button-label text-[16px] px-6 py-3 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2" style={{ background: "linear-gradient(135deg, rgb(79, 70, 229) 0%, rgb(129, 140, 248) 100%)", borderRadius: "24px", boxShadow: "rgba(79, 70, 229, 0.25) 0px 4px 12px" }}>
+            <button onClick={() => setIsConfirmOpen(true)} className="text-white font-button-label text-[16px] px-6 py-3 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2" style={{ background: "linear-gradient(135deg, rgb(79, 70, 229) 0%, rgb(129, 140, 248) 100%)", borderRadius: "24px", boxShadow: "rgba(79, 70, 229, 0.25) 0px 4px 12px" }}>
               <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>check_circle</span>
               Complete
             </button>
           </div>
         </header>
 
-        {/* Bottom UI Overlay */}
-        <footer className="absolute bottom-0 left-0 w-full z-50 bottom-gradient px-[20px] md:px-[64px] pb-[32px] pt-24 flex flex-col items-center justify-end pointer-events-none">
-          {/* Main Controls Container */}
-          <div className="w-full max-w-md mx-auto flex flex-col gap-[16px] bg-[#4b5563]/80 backdrop-blur-md p-6 rounded-[24px] border border-white/10 shadow-2xl pointer-events-auto">
-            
-            {/* Opacity Slider Control */}
-            <div className="w-full flex flex-col gap-2">
-              <div className="flex justify-between items-center text-white font-caption text-[14px]">
-                <span className="flex items-center gap-1">
-                  <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>opacity</span>
-                  Opacity
-                </span>
-                <span className="font-bold">{opacity}%</span>
-              </div>
-              <Slider value={opacity} onChange={setOpacity} />
-            </div>
+        {/* Unhide Button */}
+        {isHidden && (
+          <button 
+            onClick={() => setIsHidden(false)}
+            className="absolute bottom-8 right-8 z-50 w-14 h-14 rounded-full bg-[#1A1926]/90 backdrop-blur-md flex items-center justify-center border border-white/10 shadow-lg text-white pointer-events-auto hover:bg-[#1A1926] transition-colors"
+          >
+            <span className="material-symbols-outlined text-[24px]">visibility</span>
+          </button>
+        )}
 
-            {/* Secondary Actions (Pill Buttons) */}
-            <div className="flex justify-center gap-[16px] mt-2">
-              <button 
-                onClick={() => setIsMirrored(!isMirrored)}
-                className={`bg-[#FAF7F2]/80 hover:bg-[#FAF7F2] text-on-surface font-caption text-[14px] px-5 py-2 rounded-full flex items-center gap-2 shadow-sm hover:shadow-md transition-all active:scale-95 backdrop-blur-sm ${isMirrored ? 'bg-primary-container/20 border border-primary text-primary' : ''}`}
-              >
-                <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>flip</span>
-                Mirror
+        {/* Bottom UI Overlay */}
+        {/* Bottom UI Overlay */}
+        <footer className={`absolute bottom-0 left-0 w-full z-50 flex flex-col items-center justify-end pointer-events-none transition-transform duration-300 ease-in-out ${isHidden ? 'translate-y-full' : 'translate-y-0'}`}>
+          
+          {/* Row 1: Controls */}
+          <div className="w-full max-w-md mx-auto pointer-events-auto bg-white/10 backdrop-blur-md p-6 rounded-t-2xl border-t border-l border-r border-white/20 shadow-lg min-h-[130px] flex items-center justify-center">
+            
+            {activeTab === 'OPACITY' && (
+              <div className="w-full flex flex-col gap-5">
+                <div className="flex justify-between items-center text-white/90 font-caption text-[13px]">
+                  <span className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-[18px]">opacity</span>
+                    Opacity
+                  </span>
+                  <span className="font-bold">{opacity}%</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="material-symbols-outlined text-white/40 text-[20px]">visibility_off</span>
+                  <div className="flex-1 relative flex items-center h-6">
+                    <Slider value={opacity} onChange={setOpacity} />
+                  </div>
+                  <span className="material-symbols-outlined text-white/90 text-[20px]">visibility</span>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'CAMERA' && (
+              <div className="w-full flex justify-around items-start gap-2">
+                {/* Flash */}
+                <div className="flex flex-col items-center gap-2">
+                  <button className="w-[50px] h-[50px] flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors">
+                    <span className="material-symbols-outlined">flash_off</span>
+                  </button>
+                  <span className="text-white text-[10px] font-bold">Flash</span>
+                  <div className="bg-[#FFFBF5] px-2 py-0.5 rounded-full">
+                    <span className="text-[#1E1B3A] text-[8px] font-bold">Flash: OFF</span>
+                  </div>
+                </div>
+                
+                {/* Capture */}
+                <div className="flex flex-col items-center gap-2">
+                  <button className="w-[50px] h-[50px] flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors">
+                    <span className="material-symbols-outlined">photo_camera</span>
+                  </button>
+                  <span className="text-white text-[10px] font-bold">Capture</span>
+                  <span className="text-white/70 text-[8px]">Snapshot</span>
+                </div>
+                
+                {/* Lock Focus */}
+                <div className="flex flex-col items-center gap-2">
+                  <button className="w-[50px] h-[50px] flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors">
+                    <span className="material-symbols-outlined">track_changes</span>
+                  </button>
+                  <span className="text-white text-[10px] font-bold">Lock Focus</span>
+                  <span className="text-white/70 text-[8px]">AF lock</span>
+                </div>
+                
+                {/* Zoom */}
+                <div className="flex flex-col items-center gap-2">
+                  <button className="w-[50px] h-[50px] flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors">
+                    <span className="material-symbols-outlined">zoom_in</span>
+                  </button>
+                  <span className="text-white text-[10px] font-bold">Zoom</span>
+                  <span className="text-white/70 text-[8px]">1.0x</span>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'IMAGE' && (
+              <div className="w-full flex justify-around items-start gap-2">
+                <button onClick={() => setIsMirrored(!isMirrored)} className="flex flex-col items-center gap-2 group">
+                  <div className={`w-[50px] h-[50px] rounded-full flex items-center justify-center transition-colors ${isMirrored ? 'bg-primary text-white' : 'bg-white/10 text-white hover:bg-white/20'}`}>
+                    <span className="material-symbols-outlined">flip</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-white text-[10px] font-bold">Mirror</span>
+                    <span className="text-white/60 text-[8px]">Mirror flip</span>
+                  </div>
+                </button>
+                
+                <button onClick={() => setIsFrozen(!isFrozen)} className="flex flex-col items-center gap-2 group">
+                  <div className={`w-[50px] h-[50px] rounded-full flex items-center justify-center transition-colors ${isFrozen ? 'bg-primary text-white' : 'bg-white/10 text-white hover:bg-white/20'}`}>
+                    <span className="material-symbols-outlined">{isFrozen ? 'lock' : 'lock_open_right'}</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-white text-[10px] font-bold">Lock</span>
+                    <span className="text-white/60 text-[8px]">Lock overlay</span>
+                  </div>
+                </button>
+                
+                <button className="flex flex-col items-center gap-2 group">
+                  <div className="w-[50px] h-[50px] rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                    <span className="material-symbols-outlined">grid_on</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-white text-[10px] font-bold">Grid</span>
+                    <span className="text-white/60 text-[8px]">Show grid</span>
+                  </div>
+                </button>
+                
+                <button onClick={() => {
+                  setOpacity(50);
+                  setIsMirrored(false);
+                  setIsFrozen(false);
+                }} className="flex flex-col items-center gap-2 group">
+                  <div className="w-[50px] h-[50px] rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                    <span className="material-symbols-outlined">restart_alt</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-white text-[10px] font-bold">Reset</span>
+                    <span className="text-white/60 text-[8px]">Reset position</span>
+                  </div>
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Row 2: Tab Bar */}
+          <div className="w-full bg-[#1E1B3A]/85 backdrop-blur-md border-t border-white/10 pointer-events-auto">
+            <div className="max-w-md mx-auto flex justify-around items-center py-3">
+              <button onClick={() => setActiveTab('OPACITY')} className={`flex flex-col items-center gap-1 ${activeTab === 'OPACITY' ? 'text-white border-b-2 border-[#4F46E5] pb-1' : 'text-white/60 hover:text-white'}`}>
+                <span className={`material-symbols-outlined ${activeTab === 'OPACITY' ? 'text-[#4F46E5]' : ''}`}>opacity</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider">Opacity</span>
               </button>
-              <button 
-                onClick={() => setIsFrozen(!isFrozen)}
-                className={`bg-[#FAF7F2]/80 hover:bg-[#FAF7F2] text-on-surface font-caption text-[14px] px-5 py-2 rounded-full flex items-center gap-2 shadow-sm hover:shadow-md transition-all active:scale-95 backdrop-blur-sm ${isFrozen ? 'bg-primary-container/20 border border-primary text-primary' : ''}`}
-              >
-                <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>ac_unit</span>
-                {isFrozen ? 'Unfreeze' : 'Freeze'}
+              
+              <button onClick={() => setActiveTab('CAMERA')} className={`flex flex-col items-center gap-1 ${activeTab === 'CAMERA' ? 'text-white border-b-2 border-[#4F46E5] pb-1' : 'text-white/60 hover:text-white'}`}>
+                <span className={`material-symbols-outlined ${activeTab === 'CAMERA' ? 'text-[#4F46E5]' : ''}`}>camera_alt</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider">Camera</span>
+              </button>
+              
+              <button onClick={() => setActiveTab('IMAGE')} className={`flex flex-col items-center gap-1 ${activeTab === 'IMAGE' ? 'text-white border-b-2 border-[#4F46E5] pb-1' : 'text-white/60 hover:text-white'}`}>
+                <span className={`material-symbols-outlined ${activeTab === 'IMAGE' ? 'text-[#4F46E5]' : ''}`}>image</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider">Image</span>
+              </button>
+              
+              <button onClick={() => setIsHidden(true)} className="flex flex-col items-center gap-1 text-white/60 hover:text-white pb-1">
+                <span className="material-symbols-outlined">hide_source</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider">Hide</span>
               </button>
             </div>
           </div>
+          
+          {/* Banner Ad Area Placeholder */}
+          <div className="w-full h-[60px] bg-black/40 flex items-center justify-center border-t border-white/5 pointer-events-auto">
+            <span className="text-white/30 text-xs font-bold tracking-widest uppercase">BANNER AD AREA</span>
+          </div>
+          
         </footer>
       </main>
+
+      <ConfirmModal 
+        isOpen={isConfirmOpen}
+        onConfirm={handleSaveAndExit}
+        onCancel={() => setIsConfirmOpen(false)}
+      />
+
+      <ExportBottomSheet 
+        isOpen={isExportOpen}
+        onClose={() => setIsExportOpen(false)}
+        imageUrl={imageUrl}
+      />
     </div>
   );
 }

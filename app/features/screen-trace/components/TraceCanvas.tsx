@@ -1,22 +1,25 @@
 interface TraceCanvasProps {
   opacity: number; // 0 to 100
   imageUrl?: string;
+  zoom?: number;
+  isMirrored?: boolean;
 }
 
-export function TraceCanvas({ opacity, imageUrl }: TraceCanvasProps) {
+export function TraceCanvas({ opacity, imageUrl, zoom = 1, isMirrored = false }: TraceCanvasProps) {
   return (
     <main className="flex-1 flex items-center justify-center relative w-full h-full p-margin-mobile z-0">
       {/* SVG Tracing Image (Sunflower Bloom) */}
       <div 
-        className="w-full h-full flex items-center justify-center transition-opacity duration-200" 
+        className="w-full h-full flex items-center justify-center transition-opacity duration-200 touch-none" 
         style={{ opacity: opacity / 100 }}
       >
-        {imageUrl ? (
-          <img 
-            src={imageUrl} 
-            className="w-full h-full object-contain pointer-events-none" 
-            alt="Trace outline" 
-          />
+        <div style={{ transform: `scale(${zoom}) ${isMirrored ? 'scaleX(-1)' : ''}`, transition: 'transform 0.2s ease-out' }} className="w-full h-full flex items-center justify-center">
+          {imageUrl ? (
+            <img 
+              src={imageUrl} 
+              className="w-[85%] max-w-md aspect-square object-contain pointer-events-none mix-blend-multiply" 
+              alt="Trace outline" 
+            />
         ) : (
           <div className="w-full max-w-[80vmin] aspect-square flex items-center justify-center">
             <svg className="w-full h-full stroke-on-surface fill-none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" viewBox="0 0 100 100">
@@ -35,6 +38,7 @@ export function TraceCanvas({ opacity, imageUrl }: TraceCanvasProps) {
             </svg>
           </div>
         )}
+        </div>
       </div>
     </main>
   );

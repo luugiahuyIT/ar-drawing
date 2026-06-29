@@ -21,8 +21,8 @@ export function BottomSheet({ trigger, title, children, open, onOpenChange }: Bo
       
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 bg-black/40 z-50 backdrop-blur-sm" />
-        <Drawer.Content className="bg-[#FFF9F2] flex flex-col rounded-t-[24px] mt-24 fixed bottom-0 left-0 right-0 z-50 focus:outline-none max-h-[90vh]">
-          <div className="p-6 bg-[#FFF9F2] rounded-t-[24px] flex flex-col items-center flex-1 overflow-hidden">
+        <Drawer.Content className="bg-surface flex flex-col rounded-t-[24px] mt-24 fixed bottom-0 left-0 right-0 z-50 focus:outline-none max-h-[90vh]">
+          <div className="p-6 bg-surface rounded-t-[24px] flex flex-col items-center flex-1 overflow-hidden">
             {/* Drag Handle */}
             <div className="w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-6" />
             

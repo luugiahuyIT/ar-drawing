@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { Button } from "~/components/Button";
-import onboarding1Img from "~/assets/images/onboarding1.png";
+import onboarding1Img from "~/assets/images/onboarding1.webp";
 import type { Route } from "./+types/onboarding1";
 
 export function meta({}: Route.MetaArgs) {
@@ -13,15 +13,6 @@ export default function Onboarding1() {
   return (
     <div className="flex flex-col min-h-screen bg-surface-container font-body-md select-none">
       <main className="flex-1 flex flex-col mx-auto w-full max-w-[412px] relative overflow-hidden bg-[#fdf9f3]">
-        {/* Status Bar Mock (for visual fidelity if needed, but in web app it's often omitted. Keeping it based on HTML) */}
-        <div className="h-8 w-full flex justify-between items-center px-6 pt-4 text-on-surface-variant">
-          <span className="font-bold text-sm">9:41</span>
-          <div className="flex gap-1.5 items-center">
-            <span className="material-symbols-outlined text-[18px]">signal_cellular_4_bar</span>
-            <span className="material-symbols-outlined text-[18px]">wifi</span>
-            <span className="material-symbols-outlined text-[18px]">battery_full</span>
-          </div>
-        </div>
 
         {/* Top Navigation */}
         <header className="flex justify-end items-center px-6 h-16 pt-2">

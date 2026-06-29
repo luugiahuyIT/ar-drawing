@@ -8,8 +8,10 @@ export interface GalleryCardProps {
   timeEstimate: string;
   imageUrl: string;
   altText: string;
+  category: string;
   isFavorite?: boolean;
 }
+
 
 export function GalleryCard({ 
   id,
@@ -29,12 +31,16 @@ export function GalleryCard({
       className="group cursor-pointer block"
     >
       <div className="relative aspect-square w-full rounded-xl border border-surface-variant bg-surface-container-lowest overflow-hidden shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] mb-3 active:scale-[0.98] transition-transform">
-        <img 
-          className="w-full h-full object-cover p-6" 
-          src={imageUrl}
-          alt={altText}
-          data-alt={altText} 
-        />
+        <div className="w-full h-full p-5">
+          <div className="w-full h-full rounded-sm overflow-hidden" style={{ backgroundColor: '#F3E4D1' }}>
+            <img 
+              className="w-full h-full object-contain mix-blend-multiply p-1" 
+              src={imageUrl}
+              alt={altText}
+              data-alt={altText} 
+            />
+          </div>
+        </div>
         <button 
           onClick={(e) => {
             e.preventDefault(); // Prevent navigating when clicking favorite

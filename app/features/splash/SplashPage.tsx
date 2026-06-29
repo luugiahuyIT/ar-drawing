@@ -1,28 +1,19 @@
-import screenImg from '~/assets/images/screen.png';
+import screenImg from '~/assets/images/screen.webp';
 
 export function SplashPage() {
   return (
     <div className="bg-[#FFFBF5] min-h-screen w-full flex flex-col font-sans">
-      <style>{`
-        .icon-gradient-mask {
-          mask-image: url('${screenImg}');
-          mask-size: contain;
-          mask-repeat: no-repeat;
-          mask-position: center;
-          -webkit-mask-image: url('${screenImg}');
-          -webkit-mask-size: contain;
-          -webkit-mask-repeat: no-repeat;
-          -webkit-mask-position: center;
-        }
-      `}</style>
-
       {/* Top 40% Empty Space */}
       <div className="h-[40vh] w-full flex-shrink-0"></div>
 
       {/* Middle 30% Content Area */}
-      <main className="flex-grow flex flex-col items-center justify-center px-[24px] text-center">
-        {/* Brand Icon: 240x240px using the provided image as a mask for the gradient */}
-        <div aria-hidden="true" className="w-[240px] h-[240px] icon-gradient-mask bg-gradient-to-br from-[#4F46E5] to-[#818CF8]"></div>
+      <main className="flex-grow flex flex-col items-center justify-center px-[24px] text-center w-full max-w-md mx-auto">
+        {/* Brand Icon */}
+        <img 
+          src={screenImg} 
+          alt="PhotoTrace AR Logo" 
+          className="w-[240px] h-[240px] object-contain drop-shadow-xl" 
+        />
         
         {/* 32pt gap */}
         <div className="h-[32px]"></div>
@@ -39,6 +30,17 @@ export function SplashPage() {
         <p className="text-[#6B6981] font-normal text-[22px] leading-[1.4]">
           Trace any photo. Free forever.
         </p>
+
+        {/* Progress Bar */}
+        <div className="mt-12 w-48 h-1.5 bg-[#E8E4DE] rounded-full overflow-hidden">
+          <div className="h-full bg-gradient-to-r from-[#4F46E5] to-[#818CF8] rounded-full animate-[progress_3s_ease-in-out_forwards]" />
+        </div>
+        <style>{`
+          @keyframes progress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+          }
+        `}</style>
       </main>
 
       {/* Bottom 30% Empty Space */}

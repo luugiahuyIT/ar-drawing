@@ -1,14 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { SearchBar } from "./components/SearchBar";
 import { TrendingSearches } from "./components/TrendingSearches";
 import { CategoryList } from "./components/CategoryList";
 
 export function SearchPage() {
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
   const handleSelect = (selectedQuery: string) => {
     setQuery(selectedQuery);
-    // In a real app, this would trigger a search or navigation
+    // capitalize the first letter to match Explore's categories
+    const formattedCategory = selectedQuery.charAt(0).toUpperCase() + selectedQuery.slice(1).toLowerCase();
+    navigate(`/explore?category=${encodeURIComponent(formattedCategory)}`);
   };
 
   return (

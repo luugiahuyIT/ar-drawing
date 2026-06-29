@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import type { Route } from "./+types/learn";
 
 export function meta({}: Route.MetaArgs) {
@@ -8,12 +9,12 @@ export default function Learn() {
   return (
     <>
       {/* TopAppBar */}
-      <header className="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-md shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)]">
+      <header className="fixed top-0 w-full z-50 backdrop-blur-md shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)]">
         <div className="flex justify-between items-center px-margin-mobile h-16 w-full">
           <h1 className="font-subheadline text-subheadline font-bold text-on-background">Learn</h1>
-          <button className="p-2 hover:opacity-80 transition-opacity active:scale-95 duration-200">
+          <Link to="/settings" className="p-2 hover:opacity-80 transition-opacity active:scale-95 duration-200">
             <span className="material-symbols-outlined text-on-surface-variant">settings</span>
-          </button>
+          </Link>
         </div>
       </header>
 
@@ -28,33 +29,37 @@ export default function Learn() {
         {/* Journey List */}
         <section className="space-y-4">
           {/* Day 1 (Completed) */}
-          <article className="bg-[#FAF7F2] border border-[#E2E8F0] rounded-xl p-4 flex items-start gap-4">
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-success to-success-dark flex items-center justify-center shrink-0">
-              <span className="material-symbols-outlined text-white" style={{ fontVariationSettings: "'FILL' 1" }}>check</span>
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold text-success uppercase tracking-wider mb-1">DAY 1 Completed</p>
-              <h3 className="text-lg font-bold text-on-background mb-1 truncate">Basic Lines &amp; Angles</h3>
-              <p className="text-sm text-on-surface-variant truncate">Learn to control yo...</p>
-            </div>
-          </article>
-
-          {/* Day 2 (In Progress) */}
-          <article className="bg-white border-2 border-primary-container rounded-xl p-5 shadow-[0_10px_30px_-15px_rgba(79,70,229,0.15)] flex flex-col gap-4 transform -translate-y-1">
-            <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary-container to-[#818CF8] flex items-center justify-center shrink-0 shadow-lg shadow-primary-container/30">
-                <span className="material-symbols-outlined text-white" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
+          <Link to="/lesson/1" className="block">
+            <article className="bg-[#FAF7F2] border border-[#E2E8F0] rounded-xl p-4 flex items-start gap-4 hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-success to-success-dark flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-white" style={{ fontVariationSettings: "'FILL' 1" }}>check</span>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold text-primary-container uppercase tracking-wider mb-1">DAY 2 In Progress</p>
-                <h3 className="text-lg font-bold text-on-background mb-1">Simple Shapes</h3>
-                <p className="text-sm text-on-surface-variant line-clamp-2">Constructing objects using fundamental geometric forms.</p>
+                <p className="text-sm font-semibold text-success uppercase tracking-wider mb-1">DAY 1 Completed</p>
+                <h3 className="text-lg font-bold text-on-background mb-1 truncate">Basic Lines &amp; Angles</h3>
+                <p className="text-sm text-on-surface-variant truncate">Learn to control yo...</p>
               </div>
-            </div>
-            <button className="w-full mt-2 py-3 px-4 rounded-full bg-gradient-to-br from-primary-container to-[#818CF8] text-white font-button-label text-button-label text-center hover:scale-[1.02] active:translate-y-[2px] transition-all shadow-lg shadow-primary-container/20">
-              Continue Lesson
-            </button>
-          </article>
+            </article>
+          </Link>
+
+          {/* Day 2 (In Progress) */}
+          <Link to="/lesson/2" className="block">
+            <article className="bg-white border-2 border-primary-container rounded-xl p-5 shadow-[0_10px_30px_-15px_rgba(79,70,229,0.15)] flex flex-col gap-4 transform -translate-y-1 hover:shadow-[0_15px_40px_-15px_rgba(79,70,229,0.25)] transition-shadow">
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary-container to-[#818CF8] flex items-center justify-center shrink-0 shadow-lg shadow-primary-container/30">
+                  <span className="material-symbols-outlined text-white" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-primary-container uppercase tracking-wider mb-1">DAY 2 In Progress</p>
+                  <h3 className="text-lg font-bold text-on-background mb-1">Simple Shapes</h3>
+                  <p className="text-sm text-on-surface-variant line-clamp-2">Constructing objects using fundamental geometric forms.</p>
+                </div>
+              </div>
+              <button className="w-full mt-2 py-3 px-4 rounded-full bg-gradient-to-br from-primary-container to-[#818CF8] text-white font-button-label text-button-label text-center hover:scale-[1.02] active:translate-y-[2px] transition-all shadow-lg shadow-primary-container/20">
+                Continue Lesson
+              </button>
+            </article>
+          </Link>
 
           {/* Day 3 (Locked) */}
           <article className="bg-[#FAF7F2] border border-[#E2E8F0] rounded-xl p-4 flex items-start gap-4 opacity-70">

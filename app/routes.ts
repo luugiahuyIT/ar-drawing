@@ -12,6 +12,10 @@ export default [
   route("screen-trace", "routes/screen-trace.tsx"),
   route("not-allowed", "routes/not-allowed.tsx"),
   route("template/:id", "routes/template-detail.tsx"),
+  route("settings", "routes/settings.tsx"),
+  route("faq", "routes/faq.tsx"),
+  route("lesson/:id", "routes/lesson-detail.tsx"),
+  route("lesson/:id/step/:stepId", "routes/lesson-step.tsx"),
   layout("routes/_main.tsx", [
     route("studio", "routes/studio.tsx"),
     route("explore", "routes/explore.tsx"),

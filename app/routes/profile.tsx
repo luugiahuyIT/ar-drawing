@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { Route } from "./+types/profile";
+import { Link } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "Profile - PhotoTrace AR" }];
@@ -31,6 +32,23 @@ type TabType = 'favorites' | 'imports' | 'album';
 export default function Profile() {
   const [activeTab, setActiveTab] = useState<TabType>('favorites');
   const [activeMenu, setActiveMenu] = useState<number | null>(null);
+  const [savedAlbumData, setSavedAlbumData] = useState<any[]>(albumData);
+
+  useEffect(() => {
+    // Load saved images from localStorage
+    const saved = localStorage.getItem('album-images');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          // Merge with default albumData or just replace it
+          setSavedAlbumData([...parsed, ...albumData]);
+        }
+      } catch (e) {
+        console.error("Failed to parse album images", e);
+      }
+    }
+  }, []);
 
   const toggleMenu = (id: number) => {
     setActiveMenu(activeMenu === id ? null : id);
@@ -40,13 +58,10 @@ export default function Profile() {
     <div onClick={() => setActiveMenu(null)}>
       {/* TopAppBar */}
       <nav className="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-md shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] flex justify-between items-center px-margin-mobile h-16">
-        <button aria-label="Camera Options" className="text-outline dark:text-outline-variant hover:opacity-80 active:scale-95 transition-all duration-200">
-          <span className="material-symbols-outlined">camera_enhance</span>
-        </button>
         <h1 className="font-subheadline text-subheadline font-bold text-on-surface">Profile</h1>
-        <button aria-label="Settings" className="text-outline dark:text-outline-variant hover:opacity-80 active:scale-95 transition-all duration-200">
-          <span className="material-symbols-outlined">settings</span>
-        </button>
+        <Link to="/settings" className="p-2 hover:opacity-80 transition-opacity active:scale-95 duration-200">
+            <span className="material-symbols-outlined text-on-surface-variant">settings</span>
+        </Link>
       </nav>
 
       {/* Main Content Canvas */}
@@ -70,19 +85,19 @@ export default function Profile() {
         {/* Stats Row */}
         <section className="px-margin-mobile mt-8">
           <div className="grid grid-cols-4 gap-2">
-            <div className="bg-surface-container-lowest rounded-[12px] border border-surface-variant p-4 text-center shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-md transition-shadow">
+            <div className="bg-surface-container-lowest rounded-[12px] border border-surface-variant px-2 py-3 text-center shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-md transition-shadow">
               <span className="font-subheadline text-[24px] font-bold text-primary-container block leading-none mb-1.5">12</span>
               <span className="font-caption text-[11px] text-outline block leading-tight">Drawings</span>
             </div>
-            <div className="bg-surface-container-lowest rounded-[12px] border border-surface-variant p-4 text-center shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-md transition-shadow">
+            <div className="bg-surface-container-lowest rounded-[12px] border border-surface-variant px-2 py-3 text-center shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-md transition-shadow">
               <span className="font-subheadline text-[24px] font-bold text-primary-container block leading-none mb-1.5">1</span>
               <span className="font-caption text-[11px] text-outline block leading-tight">Lessons</span>
             </div>
-            <div className="bg-surface-container-lowest rounded-[12px] border border-surface-variant p-4 text-center shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-md transition-shadow">
+            <div className="bg-surface-container-lowest rounded-[12px] border border-surface-variant px-2 py-3 text-center shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-md transition-shadow">
               <span className="font-subheadline text-[24px] font-bold text-primary-container block leading-none mb-1.5">5</span>
               <span className="font-caption text-[11px] text-outline block leading-tight">Imports</span>
             </div>
-            <div className="bg-surface-container-lowest rounded-[12px] border border-surface-variant p-4 text-center shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-md transition-shadow">
+            <div className="bg-surface-container-lowest rounded-[12px] border border-surface-variant px-2 py-3 text-center shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-md transition-shadow">
               <span className="font-subheadline text-[24px] font-bold text-primary-container block leading-none mb-1.5">45m</span>
               <span className="font-caption text-[11px] text-outline block leading-tight">Practice</span>
             </div>
@@ -150,49 +165,57 @@ export default function Profile() {
         <section className="mt-6 px-margin-mobile grid grid-cols-2 gap-4 pb-8">
           {activeTab === 'favorites' && favoritesData.map(item => (
             <div key={item.id} className="bg-surface-container-lowest rounded-[12px] border border-surface-variant overflow-hidden shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.15)] transition-shadow">
-              <div className="aspect-square bg-surface flex items-center justify-center p-4">
-                <div className="w-full h-full bg-contain bg-no-repeat bg-center mix-blend-multiply opacity-80" style={{ backgroundImage: `url('${item.image}')` }}></div>
+              <div className="relative w-full pt-[100%] bg-surface">
+                <div className="absolute inset-0 flex items-center justify-center p-4">
+                  <div className="w-full h-full bg-contain bg-no-repeat bg-center mix-blend-multiply opacity-80" style={{ backgroundImage: `url('${item.image}')` }}></div>
+                </div>
               </div>
             </div>
           ))}
 
           {activeTab === 'imports' && importsData.map(item => (
-            <div key={item.id} className="bg-white rounded-[12px] border border-surface-variant overflow-hidden shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] flex flex-col group hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.15)] transition-shadow relative">
-              <div className="aspect-square bg-[#F3ECE1] relative p-3 flex items-center justify-center">
-                <div className="w-full h-full bg-contain bg-no-repeat bg-center mix-blend-multiply opacity-80" style={{ backgroundImage: `url('${item.image}')` }}></div>
+            <div key={item.id} className="bg-surface-container-lowest rounded-[12px] border border-surface-variant flex flex-col group hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.15)] transition-shadow relative">
+              <div className="relative w-full pt-[100%] bg-surface rounded-t-[11px]">
+                <div className="absolute inset-0 flex items-center justify-center p-5">
+                  <div className="w-full h-full bg-contain bg-no-repeat bg-center mix-blend-multiply opacity-80" style={{ backgroundImage: `url('${item.image}')` }}></div>
+                </div>
                 <button 
                   onClick={(e) => {
                     e.stopPropagation();
                     toggleMenu(item.id);
                   }}
-                  className="absolute top-2 right-2 w-7 h-7 bg-white/90 rounded-full flex items-center justify-center shadow-sm text-on-surface-variant hover:text-on-surface hover:bg-white transition-colors"
+                  className="absolute top-2 right-2 w-8 h-8 bg-white/95 rounded-full flex items-center justify-center shadow-md text-on-surface-variant hover:text-on-surface hover:bg-white transition-colors z-10 border border-surface-variant/50"
                 >
-                  <span className="material-symbols-outlined text-[18px]">more_vert</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                  </svg>
                 </button>
                 {activeMenu === item.id && (
-                  <div className="absolute top-10 right-2 bg-white rounded-xl shadow-lg border border-surface-variant w-[170px] overflow-hidden z-20 animate-in fade-in zoom-in-95 duration-200">
-                    <button className="w-full px-3 py-2.5 flex items-center gap-2 text-left hover:bg-surface-container-lowest transition-colors">
-                      <span className="material-symbols-outlined text-[16px] text-primary">draw</span>
-                      <span className="font-caption text-[12px] text-primary">Re-trace this outline</span>
+                  <div className="absolute top-11 right-2 bg-white rounded-xl shadow-lg border border-surface-variant w-max min-w-[160px] overflow-hidden z-50 animate-in fade-in zoom-in-95 duration-200">
+                    <button className="w-full px-4 py-3 flex items-center gap-3 text-left hover:bg-surface-container-lowest transition-colors">
+                      <span className="material-symbols-outlined text-[18px] text-primary">draw</span>
+                      <span className="font-caption text-[13px] text-primary whitespace-nowrap">Re-trace outline</span>
                     </button>
-                    <button className="w-full px-3 py-2.5 flex items-center gap-2 text-left hover:bg-surface-container-lowest transition-colors border-t border-surface-variant">
-                      <span className="material-symbols-outlined text-[16px] text-error">delete</span>
-                      <span className="font-caption text-[12px] text-error">Delete outline</span>
+                    <button className="w-full px-4 py-3 flex items-center gap-3 text-left hover:bg-error/5 transition-colors border-t border-surface-variant">
+                      <span className="material-symbols-outlined text-[18px] text-error">delete</span>
+                      <span className="font-caption text-[13px] text-error whitespace-nowrap">Delete outline</span>
                     </button>
                   </div>
                 )}
               </div>
-              <div className="p-3 bg-white">
+              <div className="px-3 pb-3 pt-2 bg-surface-container-lowest rounded-b-[11px] flex justify-between items-center">
                 <p className="font-caption text-[11px] text-outline">{item.date}</p>
               </div>
             </div>
           ))}
 
-          {activeTab === 'album' && albumData.map(item => (
+          {activeTab === 'album' && savedAlbumData.map(item => (
             <div key={item.id} className="bg-white rounded-[12px] p-2 border border-surface-variant shadow-[0_10px_30px_-15px_rgba(79,70,229,0.05)] flex flex-col group hover:shadow-[0_10px_30px_-15px_rgba(79,70,229,0.15)] transition-shadow relative">
-              <div className="aspect-square bg-[#F3ECE1] rounded-[8px] relative p-2 flex items-center justify-center overflow-hidden">
-                <div className="w-full h-full bg-contain bg-no-repeat bg-center mix-blend-multiply opacity-80" style={{ backgroundImage: `url('${item.image}')` }}></div>
-                <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm">
+              <div className="relative w-full pt-[100%] bg-[#F3ECE1] rounded-[8px] overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center p-3">
+                  <div className="w-full h-full bg-contain bg-no-repeat bg-center mix-blend-multiply opacity-80" style={{ backgroundImage: `url('${item.image}')` }}></div>
+                </div>
+                <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm z-10">
                   <span className="font-caption text-[10px] font-medium text-on-surface-variant">{item.date}</span>
                 </div>
               </div>

@@ -5,7 +5,7 @@ interface TrendingSearchesProps {
 }
 
 export function TrendingSearches({ onSelect }: TrendingSearchesProps) {
-  const trending = ["pet", "flower", "cat", "dog"];
+  const trending = ["dog", "cat", "monster"];
 
   return (
     <div className="mt-6 mb-8">

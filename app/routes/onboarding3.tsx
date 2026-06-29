@@ -38,15 +38,6 @@ export default function Onboarding3() {
   return (
     <div className="bg-surface text-on-surface font-body-md min-h-screen w-full flex flex-col items-center select-none bg-[#fdf9f3]">
       <main className="flex-1 flex flex-col w-full max-w-[412px] relative overflow-hidden">
-        {/* Status Bar (Simulated) */}
-        <div className="flex justify-between items-center px-6 pt-4 pb-2 text-xs font-semibold text-on-surface">
-          <span className="">9:41</span>
-          <div className="flex items-center space-x-1">
-            <span className="material-symbols-outlined text-[14px]">signal_cellular_4_bar</span>
-            <span className="material-symbols-outlined text-[14px]">wifi</span>
-            <span className="material-symbols-outlined text-[14px]">battery_full</span>
-          </div>
-        </div>
 
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col px-6 pt-6 pb-6">

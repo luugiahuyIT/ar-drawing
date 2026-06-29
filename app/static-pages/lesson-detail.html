@@ -1,0 +1,243 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Day 1 Lesson</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#ebe8e2",
+                        "on-error": "#ffffff",
+                        "secondary": "#4953bc",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "on-primary-container": "#dad7ff",
+                        "surface-tint": "#4d44e3",
+                        "secondary-fixed": "#e0e0ff",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e6e2dc",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "primary": "#3525cd",
+                        "surface-variant": "#e6e2dc",
+                        "secondary-container": "#8792fe",
+                        "background": "#fdf9f3",
+                        "surface-container": "#f1ede7",
+                        "inverse-on-surface": "#f4f0ea",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#31302d",
+                        "on-tertiary-container": "#ffd0d3",
+                        "inverse-primary": "#c3c0ff",
+                        "surface-dim": "#dddad4",
+                        "surface-container-low": "#f7f3ed",
+                        "on-surface-variant": "#464555",
+                        "tertiary-fixed": "#ffdadc",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "error": "#ba1a1a",
+                        "tertiary": "#8b1b34",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1c1c18",
+                        "tertiary-container": "#ab354b",
+                        "on-secondary-container": "#17228f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#2f3aa3",
+                        "outline": "#777587",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "on-background": "#1c1c18",
+                        "primary-fixed": "#e2dfff",
+                        "outline-variant": "#c7c4d8",
+                        "surface-bright": "#fdf9f3",
+                        "on-tertiary-fixed": "#400010",
+                        "on-secondary-fixed": "#000767",
+                        "primary-container": "#4f46e5",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "surface": "#fdf9f3",
+                        "on-primary-fixed": "#0f0069",
+                        "warm-cream": "#FFFBF5",
+                        "indigo-gradient-start": "#4F46E5",
+                        "indigo-gradient-end": "#818CF8",
+                        "coral-gradient-start": "#FB7185",
+                        "coral-gradient-end": "#F43F5E",
+                        "text-dark": "#1E1B3A",
+                        "text-gray": "#6B6981",
+                        "border-light": "#E8E4DE",
+                        "surface-cream": "#FAF7F2",
+                        "text-muted": "#A09FA8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "48px",
+                        "margin-desktop": "64px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-hero": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "caption": ["Inter", "sans-serif"],
+                        "button-label": ["Inter", "sans-serif"],
+                        "subheadline": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-hero": ["85px", { "lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "headline-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "caption": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "button-label": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "subheadline": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-warm-cream font-body-md text-text-dark min-h-screen flex flex-col items-center">
+<div class="w-full max-w-[428px] min-h-screen relative flex flex-col bg-warm-cream shadow-2xl overflow-hidden">
+<!-- Status Bar -->
+<div class="w-full h-[44px] flex justify-between items-center px-6 text-sm font-medium z-50">
+<span class="">9:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">wifi</span>
+<span class="material-symbols-outlined text-[16px]" data-weight="fill">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar Contextual Suppression: Suppressed because page intent is Task-Focused ("Back" action implies departure). Replaced with requested custom App Bar. -->
+<header class="w-full h-14 flex items-center justify-between px-5 border-b border-border-light bg-warm-cream sticky top-0 z-40">
+<button class="flex items-center text-primary-container font-semibold text-[16px] hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined mr-1">arrow_back</span>
+                Back
+            </button>
+<h1 class="absolute left-1/2 -translate-x-1/2 font-bold text-[18px] text-text-dark">Day 1 Lesson</h1>
+<div class="w-16"></div> <!-- Spacer for center alignment -->
+</header>
+<main class="flex-1 overflow-y-auto px-5 pb-32 pt-6 flex flex-col gap-8">
+<!-- Hero Zone -->
+<section>
+<div class="bg-gradient-to-br from-indigo-gradient-start to-indigo-gradient-end rounded-2xl p-6 text-white shadow-lg shadow-primary-container/20 relative overflow-hidden">
+<div class="absolute inset-0 bg-white/10 backdrop-blur-sm pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-3">
+<span class="text-[11px] font-bold tracking-[0.1em] text-white/80 uppercase">DAY 1 • FREE</span>
+<h2 class="text-[28px] font-bold leading-tight">Lines and Shapes</h2>
+<p class="text-[14px] text-white/90">6 steps • 12 min • Beginner</p>
+</div>
+</div>
+</section>
+<!-- Description Zone -->
+<section>
+<p class="text-[16px] text-text-gray leading-relaxed">
+                    Build the foundation of every drawing — control lines, master angles, and feel confident with simple shape construction.
+                </p>
+</section>
+<!-- Step List Zone -->
+<section class="flex flex-col gap-4">
+<h3 class="text-[16px] font-bold text-text-dark">Steps</h3>
+<div class="flex flex-col gap-3">
+<!-- Step 1 -->
+<div class="h-[64px] bg-surface-cream rounded-xl border border-border-light flex items-center p-2 pr-4 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-gradient-start to-indigo-gradient-end flex items-center justify-center text-white font-bold text-[18px] shrink-0">1</div>
+<div class="ml-3 flex-1 flex flex-col justify-center">
+<span class="font-bold text-[16px] text-text-dark leading-tight">Horizontal lines</span>
+<span class="text-[11px] text-text-muted mt-0.5">~2 min</span>
+</div>
+<div class="w-10 h-10 bg-warm-cream rounded border border-border-light/50 flex items-center justify-center shrink-0">
+<svg fill="none" height="24" stroke="#1E1B3A" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24" width="24"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="h-[64px] bg-surface-cream rounded-xl border border-border-light flex items-center p-2 pr-4 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-gradient-start to-indigo-gradient-end flex items-center justify-center text-white font-bold text-[18px] shrink-0">2</div>
+<div class="ml-3 flex-1 flex flex-col justify-center">
+<span class="font-bold text-[16px] text-text-dark leading-tight">Vertical lines</span>
+<span class="text-[11px] text-text-muted mt-0.5">~2 min</span>
+</div>
+<div class="w-10 h-10 bg-warm-cream rounded border border-border-light/50 flex items-center justify-center shrink-0">
+<svg fill="none" height="24" stroke="#1E1B3A" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24" width="24"><line x1="12" x2="12" y1="4" y2="20"></line><line x1="6" x2="6" y1="4" y2="20"></line><line x1="18" x2="18" y1="4" y2="20"></line></svg>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="h-[64px] bg-surface-cream rounded-xl border border-border-light flex items-center p-2 pr-4 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-gradient-start to-indigo-gradient-end flex items-center justify-center text-white font-bold text-[18px] shrink-0">3</div>
+<div class="ml-3 flex-1 flex flex-col justify-center">
+<span class="font-bold text-[16px] text-text-dark leading-tight">Add a circle</span>
+<span class="text-[11px] text-text-muted mt-0.5">~2 min</span>
+</div>
+<div class="w-10 h-10 bg-warm-cream rounded border border-border-light/50 flex items-center justify-center shrink-0">
+<svg fill="none" height="24" stroke="#1E1B3A" stroke-width="2" viewBox="0 0 24 24" width="24"><circle cx="12" cy="12" r="8"></circle></svg>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="h-[64px] bg-surface-cream rounded-xl border border-border-light flex items-center p-2 pr-4 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-gradient-start to-indigo-gradient-end flex items-center justify-center text-white font-bold text-[18px] shrink-0">4</div>
+<div class="ml-3 flex-1 flex flex-col justify-center">
+<span class="font-bold text-[16px] text-text-dark leading-tight">Square and rectangle</span>
+<span class="text-[11px] text-text-muted mt-0.5">~2 min</span>
+</div>
+<div class="w-10 h-10 bg-warm-cream rounded border border-border-light/50 flex items-center justify-center shrink-0">
+<svg fill="none" height="24" stroke="#1E1B3A" stroke-width="2" viewBox="0 0 24 24" width="24"><rect height="7" width="7" x="4" y="4"></rect><rect height="10" width="8" x="13" y="10"></rect></svg>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="h-[64px] bg-surface-cream rounded-xl border border-border-light flex items-center p-2 pr-4 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-gradient-start to-indigo-gradient-end flex items-center justify-center text-white font-bold text-[18px] shrink-0">5</div>
+<div class="ml-3 flex-1 flex flex-col justify-center">
+<span class="font-bold text-[16px] text-text-dark leading-tight">Diagonals &amp; angles</span>
+<span class="text-[11px] text-text-muted mt-0.5">~2 min</span>
+</div>
+<div class="w-10 h-10 bg-warm-cream rounded border border-border-light/50 flex items-center justify-center shrink-0">
+<svg fill="none" height="24" stroke="#1E1B3A" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24" width="24"><line x1="4" x2="20" y1="20" y2="4"></line><line x1="4" x2="16" y1="12" y2="20"></line></svg>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="h-[64px] bg-surface-cream rounded-xl border border-border-light flex items-center p-2 pr-4 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-gradient-start to-indigo-gradient-end flex items-center justify-center text-white font-bold text-[18px] shrink-0">6</div>
+<div class="ml-3 flex-1 flex flex-col justify-center">
+<span class="font-bold text-[16px] text-text-dark leading-tight">Combine into composition</span>
+<span class="text-[11px] text-text-muted mt-0.5">~2 min</span>
+</div>
+<div class="w-10 h-10 bg-warm-cream rounded border border-border-light/50 flex items-center justify-center shrink-0">
+<svg fill="none" height="24" stroke="#1E1B3A" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><polygon points="12 2 2 22 22 22"></polygon><circle cx="12" cy="14" r="4"></circle></svg>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Action Zone (Sticky Bottom) -->
+<!-- BottomNavBar Contextual Suppression: Suppressed because page intent is Task-Focused ("Back" action implies departure). -->
+<div class="absolute bottom-0 w-full bg-gradient-to-t from-warm-cream via-warm-cream to-transparent pt-12 pb-8 px-5 flex flex-col gap-4 z-40">
+<button class="w-full h-[56px] bg-gradient-to-br from-indigo-gradient-start to-indigo-gradient-end rounded-[24px] flex items-center justify-center text-white font-bold text-[18px] shadow-lg shadow-primary-container/20 transform active:scale-[0.98] transition-all hover:scale-[1.02]">
+<span class="material-symbols-outlined mr-2" data-weight="fill">play_arrow</span>
+                Start lesson
+            </button>
+<button class="w-full py-2 text-primary-container font-semibold text-[16px] flex items-center justify-center hover:opacity-80 transition-opacity">
+                Preview camera mode
+            </button>
+</div>
+</div>
+
+
+</body></html>
