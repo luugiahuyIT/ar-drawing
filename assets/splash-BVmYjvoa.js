@@ -1,0 +1,12 @@
+import{J as e,K as t,f as n,o as r,t as i}from"./jsx-runtime-D7tmqdVv.js";var a=e(t(),1),o=`/ar-drawing/assets/screen-ySC3T9BP.png`,s=i();function c(){return(0,s.jsxs)(`div`,{className:`bg-[#FFFBF5] min-h-screen w-full flex flex-col font-sans`,children:[(0,s.jsx)(`style`,{children:`
+        .icon-gradient-mask {
+          mask-image: url('${o}');
+          mask-size: contain;
+          mask-repeat: no-repeat;
+          mask-position: center;
+          -webkit-mask-image: url('${o}');
+          -webkit-mask-size: contain;
+          -webkit-mask-repeat: no-repeat;
+          -webkit-mask-position: center;
+        }
+      `}),(0,s.jsx)(`div`,{className:`h-[40vh] w-full flex-shrink-0`}),(0,s.jsxs)(`main`,{className:`flex-grow flex flex-col items-center justify-center px-[24px] text-center`,children:[(0,s.jsx)(`div`,{"aria-hidden":`true`,className:`w-[240px] h-[240px] icon-gradient-mask bg-gradient-to-br from-[#4F46E5] to-[#818CF8]`}),(0,s.jsx)(`div`,{className:`h-[32px]`}),(0,s.jsx)(`h1`,{className:`text-[#1E1B3A] font-bold text-[56px] leading-[1.1] tracking-[-0.02em]`,children:`PhotoTrace AR`}),(0,s.jsx)(`div`,{className:`h-[12px]`}),(0,s.jsx)(`p`,{className:`text-[#6B6981] font-normal text-[22px] leading-[1.4]`,children:`Trace any photo. Free forever.`})]}),(0,s.jsx)(`div`,{className:`h-[30vh] w-full flex-shrink-0`})]})}function l({}){return[{title:`PhotoTrace AR - Splash Screen`}]}var u=r(function(){let e=n();return(0,a.useEffect)(()=>{let t=setTimeout(()=>{e(`/onboarding1`)},3e3);return()=>clearTimeout(t)},[e]),(0,s.jsx)(c,{})});export{u as default,l as meta};
