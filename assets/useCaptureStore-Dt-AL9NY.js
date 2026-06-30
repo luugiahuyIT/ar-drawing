@@ -1,0 +1,1 @@
+import{t as e}from"./react-CL4B9Me2.js";var t=e(e=>({capturedImage:null,setCapturedImage:t=>e({capturedImage:t}),openCameraOnScreenTrace:!1,setOpenCameraOnScreenTrace:t=>e({openCameraOnScreenTrace:t})}));export{t};
